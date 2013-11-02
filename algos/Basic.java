@@ -9,7 +9,7 @@ import java.io.*;
  *
  * @author HunterX
  */
-public class AlgoPkg {
+public class Basic {
 
     /**
      * @param args the command line arguments
