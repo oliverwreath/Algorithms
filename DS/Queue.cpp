@@ -25,15 +25,20 @@ public:
 		entry_array = new entry_type [maxLen];
 	}
 
+	int next(int ret){
+		if( ret <= maxLen-2 ){
+			ret++;
+		}
+		else{
+			ret = 0;
+		}
+		return ret;
+	}
+
 	int append( entry_type entry ){
 		if( !full() ){
 			entry_array[end] = entry;
-			if( end <= maxLen-2 ){
-				end++;
-			}
-			else{
-				end = 0;
-			}
+			end = next(end);
 			length++;
 			return 0;
 		}
@@ -45,12 +50,7 @@ public:
 
 	int serve(){
 		if( !empty() ){
-			if( begin <= maxLen-2 ){
-				begin++;
-			}
-			else{
-				begin = 0;
-			}
+			begin = next(begin);
 			length--;
 			return 0;
 		}
