@@ -11,5 +11,5 @@
 #define FB(i, a, b) for(int i = a; i >= b; i--)
 #define MAX3(a, b, c) (a>b?a:b)>c?(a>b?a:b):c
 #define MAXDP 100001
-#define MAXArray 29999
+#define MAXArray 19999
 #define maxLen 100001

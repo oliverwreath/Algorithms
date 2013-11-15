@@ -22,7 +22,6 @@ int main()
 	mergeSort( in_array, 1, sizeof(in_array) / sizeof(* in_array) - 1 ); 
 	c1e = clock();
 
-
 	////QuickSort
 	//	//generate data as input
 	//int in_array2 [MAXArray+1]; 
@@ -42,7 +41,7 @@ int main()
 	} 
 		//operations
 	c3 = clock();
-	randQuickSort( in_array3, 0, sizeof(in_array3) / sizeof( * in_array3 ) - 1 );
+	selectionSort( in_array3, 0, sizeof(in_array3) / sizeof( * in_array3 ) - 1 );
 	c3e = clock();
 
 	//output
@@ -56,10 +55,10 @@ int main()
 	//}
 	//cout << endl;
 
-	//F( i, 1, sizeof(in_array3) / sizeof(* in_array3) - 1 ){
-	//	cout << in_array3[i] << ' ';
-	//}
-	//cout << endl;
+	F( i, 1, sizeof(in_array3) / sizeof(* in_array3) - 1 ){
+		cout << in_array3[i] << ' ';
+	}
+	cout << endl;
 
 	//output Timer
 	cout << "MergeS : " << (double)(c1e - c1)/CLOCKS_PER_SEC << endl;

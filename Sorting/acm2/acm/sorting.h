@@ -16,3 +16,8 @@ void quickSort( int * A, int p, int r );
 int randPartition( int A [], int p, int r );
 
 void randQuickSort( int A [], int p, int r );
+
+//
+void selectionSort( int * A, int p, int r );
+
+void bbSort( int * A, int p, int r );
