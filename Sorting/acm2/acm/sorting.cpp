@@ -78,21 +78,26 @@ int randPartition( int * A, int p, int r ){
 	swap(A[r], A[randR]); 
 
 	return partition( A, p, r ); 
-}
+} 
 
-void randQuickSort( int * A, int p, int r ){ 
-	if( p < r ){ 
-		int q = randPartition( A, p, r );
-		//cout << "p, r: " << p << " " << r << endl;
-		randQuickSort( A, p, q - 1 );
-		randQuickSort( A, q + 1, r );
+void randQuickSort( int * A, int p, int r ){
+	if( p < r ){
+		if( p + 11 < r ){ 
+			int q = randPartition( A, p, r ); 
+			//cout << "p, r: " << p << " " << r << endl;
+			randQuickSort( A, p, q - 1 ); 
+			randQuickSort( A, q + 1, r ); 
+		}
+		else {
+			insertionSort( A, p, r );
+		}
 	}
 
 	return ;
 } 
 
 void quickSort( int * A, int p, int r ){ 
-	if( p < r ){
+	if( p + 11 < r  ){
 		int q = partition( A, p, r );
 		quickSort( A, p, q - 1 );
 		quickSort( A, q + 1, r );
@@ -100,6 +105,9 @@ void quickSort( int * A, int p, int r ){
 		//F( i, p, r ){
 		//	cout << A[i] << " ";
 		//}
+	}
+	else {
+		insertionSort( A, p, r );
 	}
 
 	cout << endl;
@@ -119,7 +127,6 @@ void insertionSort( int * A, int p, int r ){
 		}
 	}
 
-	cout << endl;
 	return ;
 } 
 

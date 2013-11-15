@@ -2,7 +2,7 @@
 #include <acm.h>
 #include <sorting.h>
 
-#define MAXArray 3
+#define MAXArray 39999
 
 typedef int entry_type;
 
@@ -50,15 +50,15 @@ int main()
 	} 
 		//operations
 	c3 = clock(); 
-	selectionSort2Way( in_array3, 0, sizeof(in_array3) / sizeof( * in_array3 ) - 1 ); 
+	randQuickSort( in_array3, 0, sizeof(in_array3) / sizeof( * in_array3 ) - 1 ); 
 	c3e = clock(); 
 
-	///output
-	printArray( in_array1, sizeof(in_array1) / sizeof(* in_array1) );
+	///output 
+	//printArray( in_array1, sizeof(in_array1) / sizeof(* in_array1) );
 
 	//printArray( in_array2, sizeof(in_array2) / sizeof(* in_array2) );
 
-	printArray( in_array3, sizeof(in_array3) / sizeof(* in_array3) );
+	//printArray( in_array3, sizeof(in_array3) / sizeof(* in_array3) );
 
 	//output Timer
 	cout << "MergeS : " << (double)(c1e - c1)/CLOCKS_PER_SEC << endl;
