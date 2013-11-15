@@ -3,6 +3,7 @@
 #include <sorting.h>
 #include <time.h>
 #include <iostream>
+//#include <algorithm>
 
 using namespace std;
 
@@ -55,26 +56,40 @@ void swap( int * A, int q, int r ){
 
 int partition( int * A, int p, int r ){ 
 	int pivot = A[r];
-	int i = p;
-	int j = r-1;
+	int i = p-1;
 
-	while( i < j ){
-		while( A[i] <= pivot && ( i < j ) )
-		{
+	F( j, p, r-1 ){
+		if( A[j] <= pivot ){
 			i++;
-		}
-		while( A[j] >= pivot && ( i < j ) )
-		{
-			j--;
-		}
-		if( i < j ){
-			swap( A, i, j ); 
+			//swap( A, i, j );
+			swap( A[i], A[j] );
 		}
 	}
 
-	swap( A, i, r );
-	return i;
+	//swap( A, i + 1, r );
+	swap( A[i+1], A[r] );
+	return i + 1;
 }
+
+int randPartition( int * A, int p, int r ){ 
+	//srand( (unsigned)time(NULL) ); 
+	int randR = rand() % (r - p + 1) + p; 
+	//swap( A, r, randR ); 
+	swap(A[r], A[randR]); 
+
+	return partition( A, p, r ); 
+}
+
+void randQuickSort( int * A, int p, int r ){ 
+	if( p < r ){ 
+		int q = randPartition( A, p, r );
+		cout << "p, r: " << p << " " << r << endl;
+		randQuickSort( A, p, q - 1 );
+		randQuickSort( A, q + 1, r );
+	}
+
+	return ;
+} 
 
 void quickSort( int * A, int p, int r ){ 
 	if( p < r ){
@@ -91,20 +106,17 @@ void quickSort( int * A, int p, int r ){
 	return ;
 } 
 
-
-int randPartition( int * A, int p, int r ){ 
-	srand( (unsigned)time(NULL) ); 
-	int randR = (double)rand() / (RAND_MAX + 1) * (r + 1 - p) + p; 
-	swap( A, r, randR ); 
-
-	return partition( A, p, r ); 
-}
-
-void randQuickSort( int * A, int p, int r ){ 
-	if( p < r ){
-		int q = randPartition( A, p, r );
-		randQuickSort( A, p, q - 1 );
-		randQuickSort( A, q + 1, r );
+void insertionSort( int * A, int p, int r ){ 
+	F( i, p+1, r ){
+		FB( j, i-1, p ){
+			if( A[j] > A[j+1] ){
+				swap( A[j], A[j+1] );
+			}
+			else{
+				break; 
+			}
+		
+		}
 	}
 
 	cout << endl;
@@ -112,10 +124,32 @@ void randQuickSort( int * A, int p, int r ){
 } 
 
 void selectionSort( int * A, int p, int r ){ 
-	// denote p = 0, r = n-1
-	int n = r - p + 1; //total number
+	// denote p = 0, r = n-1 
+	int n = r - p + 1; //total number 
 	int minValue = 999999999; 
-	int minIndex = p;
+	int minIndex = p; 
+
+	F( i, 1, n ){
+		F( j, p + i - 1, r ){
+			if( minValue > A[j] ){
+				minValue = A[j];
+				minIndex = j;
+			}
+		}
+		if( minIndex > p + i - 1 ){
+			swap( A, p + i - 1, minIndex );
+		}
+		minValue = 999999999; 
+		minIndex = p; 
+	}
+	return ;
+} 
+
+void selectionSort2Way( int * A, int p, int r ){ 
+	// denote p = 0, r = n-1 
+	int n = r - p + 1; //total number 
+	int minValue = 999999999; 
+	int minIndex = p; 
 		
 	int maxValue = -999999999;
 	int maxIndex = r;

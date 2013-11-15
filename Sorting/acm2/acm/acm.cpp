@@ -55,10 +55,10 @@ int main()
 	//}
 	//cout << endl;
 
-	F( i, 1, sizeof(in_array3) / sizeof(* in_array3) - 1 ){
-		cout << in_array3[i] << ' ';
-	}
-	cout << endl;
+	F( i, 1, sizeof(in_array3) / sizeof(* in_array3) - 1 ){ 
+		cout << in_array3[i] << ' '; 
+	} 
+	cout << endl; 
 
 	//output Timer
 	cout << "MergeS : " << (double)(c1e - c1)/CLOCKS_PER_SEC << endl;

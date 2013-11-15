@@ -18,6 +18,10 @@ int randPartition( int A [], int p, int r );
 void randQuickSort( int A [], int p, int r );
 
 //
+void insertionSort( int * A, int p, int r );
+
 void selectionSort( int * A, int p, int r );
+
+void selectionSort2Way( int * A, int p, int r ); 
 
 void bbSort( int * A, int p, int r );
