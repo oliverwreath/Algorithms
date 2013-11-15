@@ -1,4 +1,4 @@
-﻿Build started 11/15/2013 18:12:07.
+﻿Build started 11/15/2013 20:24:14.
      1>Project "C:\Users\HunterX\Documents\Visual Studio 2012\Projects\acm2\acm\acm.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          D:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\HunterX\Documents\Visual Studio 2012\Projects\acm2\acm" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt sorting.cpp
@@ -11,4 +11,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.63
+Time Elapsed 00:00:01.50

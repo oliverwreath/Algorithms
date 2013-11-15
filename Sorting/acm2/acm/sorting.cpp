@@ -10,10 +10,10 @@ using namespace std;
 int merge( int in_array [], int m, int begin, int end ){
 	//smallest first
 	int n = end - begin + 1;
-	int * B = new int [n+1];
+	int * B = new int [n];
 	int i = begin;
 	int j = m+1;
-	F( k, 1, n ){
+	F( k, 0, n-1 ){
 		if( j > end ){
 			B[k] = in_array[i++];
 		}else if( i > m ){
@@ -24,8 +24,8 @@ int merge( int in_array [], int m, int begin, int end ){
 			B[k] = in_array[j++];
 		}
 	}
-	F( k, 1, n ){
-		in_array[begin+k-1] = B[k]; 
+	F( k, 0, n-1 ){
+		in_array[begin+k] = B[k]; 
 	}
 	return 0;
 }
@@ -83,7 +83,7 @@ int randPartition( int * A, int p, int r ){
 void randQuickSort( int * A, int p, int r ){ 
 	if( p < r ){ 
 		int q = randPartition( A, p, r );
-		cout << "p, r: " << p << " " << r << endl;
+		//cout << "p, r: " << p << " " << r << endl;
 		randQuickSort( A, p, q - 1 );
 		randQuickSort( A, q + 1, r );
 	}
@@ -127,20 +127,20 @@ void selectionSort( int * A, int p, int r ){
 	// denote p = 0, r = n-1 
 	int n = r - p + 1; //total number 
 	int minValue = 999999999; 
-	int minIndex = p; 
+	int minIndex = -1; 
 
 	F( i, 1, n ){
 		F( j, p + i - 1, r ){
-			if( minValue > A[j] ){
-				minValue = A[j];
-				minIndex = j;
+			if( minValue > A[j] ){ 
+				minValue = A[j]; 
+				minIndex = j; 
 			}
 		}
-		if( minIndex > p + i - 1 ){
+		if( minIndex > - 1 ){
 			swap( A, p + i - 1, minIndex );
 		}
 		minValue = 999999999; 
-		minIndex = p; 
+		minIndex = -1; 
 	}
 	return ;
 } 
@@ -149,32 +149,40 @@ void selectionSort2Way( int * A, int p, int r ){
 	// denote p = 0, r = n-1 
 	int n = r - p + 1; //total number 
 	int minValue = 999999999; 
-	int minIndex = p; 
-		
+	int minIndex = -1; 
+	
 	int maxValue = -999999999;
-	int maxIndex = r;
+	int maxIndex = -1; 
 
 	F(i, 1, n/2){
 		F(j, p + i - 1, r - i + 1 ){
 			if( minValue > A[j] ){
 				minValue = A[j];
 				minIndex = j;
-			}
+			} 
 			if( maxValue < A[j] ){
 				maxValue = A[j];
 				maxIndex = j;
-			}
+			} 
+		} 
+		if( minIndex == maxIndex ){ 
+			return ; 
+		} else if( p + i - 1 == maxIndex || ( r - i + 1 == minIndex ) ){
+			selectionSort( A, p + i - 1, r - i + 1 ); 
+			return ;
 		}
-		if( minIndex > p + i - 1 ){
-			swap( A, p + i - 1, minIndex );
-		}
-		if( maxIndex < r - i + 1 ){
-			swap( A, r - i + 1, maxIndex );
+		else { 
+			if( minIndex > - 1 ){ 
+				swap( A, p + i - 1, minIndex );
+			} 
+			if( maxIndex > - 1 ){ 
+				swap( A, r - i + 1, maxIndex );
+			} 
 		}
 		minValue = 999999999; 
-		minIndex = p; 
+		minIndex = -1; 
 		maxValue = -999999999; 
-		maxIndex = r; 
+		maxIndex = -1; 
 	}
 	return ;
 } 
@@ -194,3 +202,8 @@ void bbSort( int * A, int p, int r ){
 
 	return ;
 }
+
+
+
+
+
