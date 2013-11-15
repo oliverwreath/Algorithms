@@ -2,7 +2,7 @@
 #include <acm.h>
 #include <sorting.h>
 
-#define MAXArray 39999
+#define MAXArray 19999
 
 typedef int entry_type;
 
