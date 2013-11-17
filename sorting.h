@@ -199,20 +199,51 @@ public:
 		return ;
 	} 
 
+	void insertionSort( int p, int r ){ 
+		F( i, p+1, r ){
+			FB( j, i, p + 1 ){
+				if( A[j] < A[j - 1] ){
+					swap( A, j, j-1 );
+				}
+				else{
+					break; 
+				}
+			}
+		}
+
+		return ;
+	} 
+
 	void selectionSort( T A [], int p, int r ){ 
 		// denote p = 0, r = n-1 
-		int n = r - p + 1; //total number 
-
-		F( i, 1, n ){
-			int minIndex = p + i - 1; 
-			int minValue = A[p + i - 1]; 
-			F( j, p + i - 1, r ){
+		F( i, 1, r ){
+			int begin = p + i - 1; 
+			int minIndex = begin; 
+			T minValue = A[begin]; 
+			F( j, begin, r ){
 				if( minValue > A[j] ){ 
 					minValue = A[j]; 
 					minIndex = j; 
 				} 
 			} 
-			swap( A, p + i - 1, minIndex );
+			swap( A, begin, minIndex );
+		}
+		return ;
+	} 
+
+	void selectionSort( int p, int r ){ 
+		// denote p = 0, r = n-1 
+		F( i, 1, r ){
+			int begin = p + i - 1; 
+			int minIndex = begin; 
+			T minValue = A[begin]; 
+			F( j, begin, r ){
+				if( minValue > A[j] ){ 
+					minValue = A[j]; 
+					minIndex = j; 
+				} 
+			} 
+			swap( A, begin, minIndex );
 		}
 		return ;
 	} 
@@ -222,17 +253,14 @@ public:
 		int n = r - p + 1; //total number 
 
 		F(i, 1, n/2){
-			//testing
-			//F( k, p, r ){ 
-			//	cout << A[k] << ' '; 
-			//} 
-			//cout << endl; 
+			int begin = p + i - 1;
+			int end = r - i + 1;
 
-			int minValue = A[p + i - 1]; 
-			int minIndex = p + i - 1; 
+			T minValue = A[begin]; 
+			int minIndex = begin; 
 
-			int maxValue = A[p + i - 1]; 
-			int maxIndex = p + i - 1; 
+			T maxValue = A[begin]; 
+			int maxIndex = begin; 
 
 			F(j, p + i - 1, r - i + 1 ){ 
 				if( minValue > A[j] ){
@@ -250,12 +278,53 @@ public:
 				return ; 
 			} 
 			else if( p + i - 1 == maxIndex ){ //A = C 
-				swap( A, p + i - 1, minIndex );
-				swap( A, r - i + 1, minIndex ); 
+				swap( A, begin, minIndex );
+				swap( A, end, minIndex ); 
 			} 
 			else{
-				swap( A, p + i - 1, minIndex );
-				swap( A, r - i + 1, maxIndex ); 
+				swap( A, begin, minIndex );
+				swap( A, end, maxIndex ); 
+			}
+		}
+		return ;
+	} 
+
+	void selectionSort2Way( int p, int r ){ 
+		// denote p = 0, r = n-1 
+		int n = r - p + 1; //total number 
+
+		F(i, 1, n/2){
+			int begin = p + i - 1;
+			int end = r - i + 1;
+
+			T minValue = A[begin]; 
+			int minIndex = begin; 
+
+			T maxValue = A[begin]; 
+			int maxIndex = begin; 
+
+			F(j, p + i - 1, r - i + 1 ){ 
+				if( minValue > A[j] ){
+					minValue = A[j];
+					minIndex = j;
+				} 
+				if( maxValue < A[j] ){ 
+					maxValue = A[j];
+					maxIndex = j;
+				} 
+			} 
+
+			if( minIndex == maxIndex ){ 
+				//all the same, flat array
+				return ; 
+			} 
+			else if( p + i - 1 == maxIndex ){ //A = C 
+				swap( A, begin, minIndex );
+				swap( A, end, minIndex ); 
+			} 
+			else{
+				swap( A, begin, minIndex );
+				swap( A, end, maxIndex ); 
 			}
 		}
 		return ;
@@ -265,10 +334,10 @@ public:
 		// denote p = 0, r = n-1 
 		int n = r - p + 1; //total number 
 
-		if( p + 15 < r ){
-			selectionSort2Way( A, p, r );
-			return ;
-		}
+		if( p + 14 < r ){ 
+			selectionSort2Way( A, p, r ); 
+			return ; 
+		} 
 		F(i, 1, n/2){
 			//testing
 			//F( k, p, r ){ 
@@ -276,14 +345,15 @@ public:
 			//} 
 			//cout << endl; 
 
-			int minValue = A[p + i - 1]; 
-			int minIndex = p + i - 1; 
-
-			int maxValue = A[p + i - 1]; 
-			int maxIndex = p + i - 1; 
-
 			int begin = p + i - 1;
 			int end = r - i + 1;
+
+			T minValue = A[begin]; 
+			int minIndex = begin; 
+
+			T maxValue = A[begin]; 
+			int maxIndex = begin; 
+
 			int j = begin; 
 			if( (end - begin + 1) %2 != 0 ){ 
 				j++; 
@@ -320,12 +390,83 @@ public:
 				return ; 
 			} 
 			else if( p + i - 1 == maxIndex ){ //A = C 
-				swap( A, p + i - 1, minIndex );
-				swap( A, r - i + 1, minIndex ); 
+				swap( A, begin, minIndex );
+				swap( A, end, minIndex ); 
 			} 
 			else{
-				swap( A, p + i - 1, minIndex );
-				swap( A, r - i + 1, maxIndex ); 
+				swap( A, begin, minIndex );
+				swap( A, end, maxIndex ); 
+			}
+		}
+		return ;
+	} 
+
+	void selectionSort2WayV2( int p, int r ){ 
+		// denote p = 0, r = n-1 
+		int n = r - p + 1; //total number 
+
+		if( p + 14 < r ){
+			selectionSort2Way( A, p, r );
+			return ; 
+		} 
+		F(i, 1, n/2){
+			//testing
+			//F( k, p, r ){ 
+			//	cout << A[k] << ' '; 
+			//} 
+			//cout << endl; 
+
+			int begin = p + i - 1;
+			int end = r - i + 1;
+
+			T minValue = A[begin]; 
+			int minIndex = begin; 
+
+			T maxValue = A[begin]; 
+			int maxIndex = begin; 
+
+			int j = begin; 
+			if( (end - begin + 1) %2 != 0 ){ 
+				j++; 
+			}
+			while(1){
+				if( j > (end) ){
+					break;	
+				}
+				if( A[j] < A[j+1] ){
+					if( minValue > A[j] ){
+						minValue = A[j];
+						minIndex = j; 
+					} 
+					if( maxValue < A[j+1] ){ 
+						maxValue = A[j+1];
+						maxIndex = j+1; 
+					} 
+				} 
+				else{ 
+					if( minValue > A[j+1] ){
+						minValue = A[j+1];
+						minIndex = j+1; 
+					} 
+					if( maxValue < A[j] ){ 
+						maxValue = A[j];
+						maxIndex = j; 
+					} 
+				} 
+				j+=2; 
+			} 
+
+			if( minIndex == maxIndex ){ 
+				//all the same, flat array
+				return ; 
+			} 
+			else if( p + i - 1 == maxIndex ){ //A = C 
+				swap( A, begin, minIndex );
+				swap( A, end, minIndex ); 
+			} 
+			else{
+				swap( A, begin, minIndex );
+				swap( A, end, maxIndex ); 
 			}
 		}
 		return ;

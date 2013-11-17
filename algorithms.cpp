@@ -8,31 +8,19 @@
 
 using namespace std;
 
-void printArray( int in_array [], int length ){
-	cout << length << endl ;
-	F( i, 0, length - 1 ){ 
-		cout << in_array[i] << ' '; 
-	} 
-	cout << endl; 
-} 
-
-//int in_array1 [MAXArray+1]; 
-////int in_array2 [MAXArray+1];
-//int in_array3 [MAXArray+1]; 
-
 //sorting
 int main()
 {
 	//MergeSort
 		//generate data as input 
 	srand( (unsigned)time(NULL) ); 
-	sorting<int> st = sorting<int>(MAXArray+1);
-	sorting<int> st3 = sorting<int>(MAXArray+1);
+	sorting<double> st = sorting<double>(MAXArray+1); 
+	sorting<double> st3 = sorting<double>(MAXArray+1); 
 
 		//operations
-	clock_t c1, c1e, c2, c2e, c3, c3e;  
+	clock_t c1, c1e, c3, c3e;  
 	c1 = clock();
-	st.mergeSort( 0, MAXArray ); 
+	st.selectionSort( 0, MAXArray ); 
 	c1e = clock();
 
 	////QuickSort
@@ -44,7 +32,7 @@ int main()
 	//randQuickSort 
 		//operations
 	c3 = clock(); 
-	st3.randQuickSort( 0, MAXArray ); 
+	st3.selectionSort2WayV2( 0, MAXArray ); 
 	c3e = clock(); 
 
 	///output 
