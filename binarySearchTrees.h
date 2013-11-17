@@ -2,13 +2,6 @@
 
 #include <iostream>
 
-//typedef struct node{
-//	T value;
-//	node * left; 
-//	node * right;
-//	node * parent; 
-//}node;
-
 using namespace std; 
 
 template <class T>
@@ -70,11 +63,101 @@ private:
 	node<T> * root;
 
 public: 
-	tree(){
+	tree(){ 
 		root = NULL;
 	}
 	tree( node<T> * rt ){ 
 		root = rt;
+	}
+
+	node<T> * getRoot(){
+		return root; 
+	}
+
+	node<T> * minimum( node<T> * original ){
+		node<T> * tmp = original;
+		if( tmp == NULL ){
+			return NULL; 
+		}
+		while( (* tmp).getLeft() != NULL )
+		{
+			tmp = (* tmp).getLeft();
+		}
+
+		return tmp; 
+	}
+
+	node<T> * maximum( node<T> * original ){
+		node<T> * tmp = original;
+		if( tmp == NULL ){
+			return NULL; 
+		}
+		while( (* tmp).getRight() != NULL )
+		{
+			tmp = (* tmp).getRight();
+		}
+
+		return tmp; 
+	}
+
+	node<T> * minimum(){
+		node<T> * tmp = root;
+		if( tmp == NULL ){
+			return NULL; 
+		}
+		while( (* tmp).getLeft() != NULL )
+		{
+			tmp = (* tmp).getLeft();
+		}
+
+		return tmp; 
+	}
+
+	node<T> * maximum(){
+		node<T> * tmp = root;
+		if( tmp == NULL ){
+			return NULL; 
+		}
+		while( (* tmp).getRight() != NULL )
+		{
+			tmp = (* tmp).getRight();
+		}
+
+		return tmp; 
+	}
+
+	node<T> * pre( node<T> * original ){
+		if( original == NULL ){
+			return original;
+		}
+		node<T> * tmp = original;
+		if( (* tmp).getLeft() != NULL ){
+			return maximum( (* tmp).getLeft() );
+		}
+		node<T> * y = (* tmp).getParent(); 
+		while( y != NULL && (* y).getLeft() == tmp ){
+			tmp = y; 
+			y = (* y).getParent();
+		}
+		tmp = NULL; 
+		return y; 
+	}
+
+	node<T> * suc( node<T> * original ){
+		if( original == NULL ){
+			return original;
+		}
+		node<T> * tmp = original;
+		if( (* tmp).getRight() != NULL ){
+			return minimum( (* tmp).getRight() );
+		}
+		node<T> * y = (* tmp).getParent(); 
+		while( y != NULL && (* y).getRight() == tmp ){
+			tmp = y; 
+			y = (* y).getParent();
+		}
+		tmp = NULL; 
+		return y; 
 	}
 
 	void printTreeIn(){ 
@@ -93,7 +176,7 @@ public:
 		return printTreePosRec( root );
 	}
 
-	node<T> * searchTree( T entry ){
+	node<T> * searchTree( T entry ){ 
 		if( root == NULL || ((* root).getValue() == entry) ){ 
 			return root;
 		} 
