@@ -1,4 +1,4 @@
-Algorithms Fantasy
+Algorithms Fantasy Library 
 ==========
 
 -> Sorting Fantasy: randomized QuickSort + Insertion optimization + half stack overhead + two way partition; Merge Sort; Selection and Two-way-Selection Sort optimization; Bubble Sort !
