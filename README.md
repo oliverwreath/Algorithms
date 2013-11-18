@@ -1,12 +1,28 @@
 Algorithms Fantasy C++ library
-==========
+==============================
 
--> Sorting Fantasy: randomized QuickSort + Insertion optimization + half stack overhead + two way partition; Merge Sort; Selection and Two-way-Selection Sort optimization; Bubble Sort !
+For learning, demonstration and for fun! 
 
--> Binary Search Tree
+Algorithms Implemented so far:
+------------------------------
 
--> rotated Stack, Queue by 2 Stacks
+**Sorting Fantasy:** 
+- randomized QuickSort + Insertion optimization + half stack overhead + two way partition; 
+- Merge Sort; 
+- Selection and Two-way-Selection Sort optimization; 
+- Bubble Sort !
+- Insertion
 
+**Trees:**
+- Binary Search Tree
+- Prioritized Queue/ Dictionary
+
+**Others:** 
+- rotated Stack
+- Queue by 2 Stacks
+
+Disclaimer:
+-----------
 Have fun! 
 
 All Rights Reserved. 

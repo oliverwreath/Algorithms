@@ -168,7 +168,8 @@ public:
 
 	void printTreePre(){ 
 		//pre-order
-		return printTreePreRec( root );
+		printTreePreRec( root );
+		cout << endl;
 	}
 
 	void printTreePos(){ 
@@ -219,13 +220,54 @@ public:
 		return true; 
 	}
 
-	bool deleteNode( T z ){
-	
+	bool deleteNode( node<T> * z ){
+		if( z == NULL ){
+			cerr << "error: InValid Input: no such node or entry !" << endl;
+			return false;
+		}
+		if( (* z).getLeft() == NULL ){
+			transPlant( z, (* z).getRight() );
+		}
+		else if( (* z).getRight() == NULL ){
+			transPlant( z, (* z).getLeft() );
+		}
+		else{
+			node<T> * y = minimum( (* z).getRight() );
+			if( (* y).getParent() != z ){
+				transPlant( y, (* y).getRight() );
+				(* y).setRight( (* z).getRight() );
+				(* (* y).getRight()).setParent( y );
+			}
+			(* y).setLeft( (* z).getLeft() );
+			(* (* y).getLeft()).setParent( y );
+			transPlant( z, y );
+		}
+		return true;
+	}
 
-		return false;
+	bool deleteEntry( T entry ){ 
+		return deleteNode( searchTree( entry ) ); 
 	}
 
 private:
+	void transPlant( node<T> * u, node<T> * v ){
+		node<T> * p = (* u).getParent(); 
+		if( p == NULL ){
+			root = v;
+		}
+		else{
+			if( (* p).getLeft() == u ){
+				(* p).setLeft( v );
+			}
+			else{
+				(* p).setRight( v );
+			}
+		} 
+		if( v != NULL ){ 
+			(* v).setParent( p ); 
+		} 
+	}
+
 	void printTreeInRec( node<T> * root ){ 
 		//in-order
 		if( (* root).getLeft() != NULL ){
@@ -242,7 +284,7 @@ private:
 	void printTreePreRec( node<T> * root ){ 
 		//pre-order
 		if( (* root).getValue() != NULL ){ 
-			cout << (* root).getValue(); 
+			cout << (* root).getValue() << " "; 
 		} 
 		if( (* root).getLeft() != NULL ){
 			printTreePreRec( (* root).getLeft() );
