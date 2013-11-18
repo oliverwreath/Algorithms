@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <sorting.h> 
 #include <binarySearchTrees.h>
+#include <staque.h>
 
 //typedef int entry_type;
 
@@ -68,89 +69,195 @@ using namespace std;
 //	return 0;
 //}
 
-//binarySearchTrees 
-int main() 
-{ 
-	node<int> newNode = node<int>(4); 
-	tree<int> tree1( &node<int>(3) ); 
-	tree1.printTreePre( ); 
+////binarySearchTrees 
+//int main() 
+//{ 
+//	node<int> newNode = node<int>(4); 
+//	tree<int> tree1( &node<int>(3) ); 
+//	tree1.printTreePre( ); 
+//
+//	tree1.insertNode( &newNode ); 
+//	tree1.printTreePre( ); 
+//
+//	tree1.insertNode( &node<int>(1) ); 
+//	tree1.printTreePre( ); 
+//
+//	tree1.insertNode( &node<int>(2) ); 
+//	tree1.printTreePre( ); 
+//
+//	tree1.insertNode( &node<int>(9) ); 
+//	tree1.printTreePre( ); 
+//
+//	tree1.insertNode( &node<int>(2) ); 
+//	tree1.printTreePre( ); 
+//
+//	tree1.insertNode( &node<int>(4) ); 
+//	tree1.printTreePre( ); 
+//
+//	tree1.insertNode( &node<int>(8) ); 
+//	tree1.printTreePre( ); 
+//
+//	cout << (* tree1.searchTree( 3 ) ).getValue() << endl; 
+//
+//	cout << (* tree1.minimum()).getValue() << endl; 
+//
+//	cout << (* tree1.maximum()).getValue() << endl; 
+//
+//	node<int> * tmp = tree1.suc( tree1.minimum()); 
+//	if(tmp != NULL){
+//		cout << (* tmp).getValue() << endl; 
+//	}else{
+//		cerr << "error NO SUC !" << endl; 
+//	}
+//
+//	tmp = tree1.suc( tree1.maximum());
+//	if(tmp != NULL){
+//		cout << (* tmp).getValue() << endl;
+//	}else{
+//		cerr << "error NO SUC !" << endl;
+//	}
+//
+//	tmp = tree1.pre( tree1.minimum());
+//	if(tmp != NULL){
+//		cout << (* tmp).getValue() << endl;
+//	}else{
+//		cerr << "error NO PRE !" << endl;
+//	}
+//
+//	tmp = tree1.pre( tree1.maximum());
+//	if(tmp != NULL){
+//		cout << (* tmp).getValue() << endl;
+//	}else{
+//		cerr << "error NO PRE !" << endl;
+//	}
+//
+//	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
+//	tree1.printTreePre( ); 
+//
+//	tree1.deleteEntry( 3 ); cout << "delete 3 :" << endl;
+//	tree1.printTreePre( ); 
+//
+//	tree1.deleteEntry( 4 ); cout << "delete 4 :" << endl;
+//	tree1.printTreePre( ); 
+//
+//	tree1.deleteEntry( 9 ); cout << "delete 9 :" << endl;
+//	tree1.printTreePre( ); 
+//
+//	tree1.deleteEntry( 2 ); cout << "delete 2 :" << endl;
+//	tree1.printTreePre( ); 
+//
+//	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
+//	tree1.printTreePre( ); 
+//
+//	tmp = NULL; 
+//
+//	system("pause"); 
+//	return 0; 
+//} 
+//
 
-	tree1.insertNode( &newNode ); 
-	tree1.printTreePre( ); 
+//staque
+int main()
+{
+	Stack<int> st = Stack<int>();
+	int tmp = 0;
 
-	tree1.insertNode( &node<int>(1) ); 
-	tree1.printTreePre( ); 
-
-	tree1.insertNode( &node<int>(2) ); 
-	tree1.printTreePre( ); 
-
-	tree1.insertNode( &node<int>(9) ); 
-	tree1.printTreePre( ); 
-
-	tree1.insertNode( &node<int>(2) ); 
-	tree1.printTreePre( ); 
-
-	tree1.insertNode( &node<int>(4) ); 
-	tree1.printTreePre( ); 
-
-	tree1.insertNode( &node<int>(8) ); 
-	tree1.printTreePre( ); 
-
-	cout << (* tree1.searchTree( 3 ) ).getValue() << endl; 
-
-	cout << (* tree1.minimum()).getValue() << endl; 
-
-	cout << (* tree1.maximum()).getValue() << endl; 
-
-	node<int> * tmp = tree1.suc( tree1.minimum()); 
-	if(tmp != NULL){
-		cout << (* tmp).getValue() << endl; 
-	}else{
-		cerr << "error NO SUC !" << endl; 
+	if( !st.top(&tmp) ){
+		cout << "top: " << tmp << endl;
+	}
+	if( !st.pop() ){
+		cout << "pop " << endl;
+	}
+	if( !st.push(3) ){
+		cout << "push: " << 3 << endl;
+	}
+	if( !st.top(&tmp) ){
+		cout << "top: " << tmp << endl;
+	}
+	if( !st.push(5) ){
+		cout << "push: " << 5 << endl;
+	}
+	if( !st.top(&tmp) ){
+		cout << "top: " << tmp << endl;
+	}
+	if( !st.clear() ){
+		cout << "clear: " << endl;
+	}
+	if( !st.top(&tmp) ){
+		cout << "top: " << tmp << endl;
 	}
 
-	tmp = tree1.suc( tree1.maximum());
-	if(tmp != NULL){
-		cout << (* tmp).getValue() << endl;
-	}else{
-		cerr << "error NO SUC !" << endl;
+	cout << endl;
+	Queue<int> qt = Queue<int>();
+
+	if( !qt.retrieve(&tmp) ){
+		cout << "retrieve: " << tmp << endl;
+	}
+	if( !qt.serve() ){
+		cout << "serve " << endl;
+	}
+	if( !qt.append(3) ){
+		cout << "append: " << 3 << endl;
+	}
+	if( !qt.retrieve(&tmp) ){
+		cout << "retrieve: " << tmp << endl;
+	}
+	if( !qt.append(5) ){
+		cout << "append: " << 5 << endl;
+	}
+	if( !qt.retrieve(&tmp) ){
+		cout << "retrieve: " << tmp << endl;
+	}
+	if( !qt.serve() ){
+		cout << "serve " << endl;
+	}
+	if( !qt.retrieve(&tmp) ){
+		cout << "retrieve: " << tmp << endl;
+	}
+	if( !qt.clear() ){
+		cout << "clear: " << endl;
+	}
+	if( !qt.retrieve(&tmp) ){
+		cout << "retrieve: " << tmp << endl;
 	}
 
-	tmp = tree1.pre( tree1.minimum());
-	if(tmp != NULL){
-		cout << (* tmp).getValue() << endl;
-	}else{
-		cerr << "error NO PRE !" << endl;
+	cout << endl;
+	Staque<int> sq = Staque<int>();
+
+	if( !sq.dequeue(&tmp) ){
+		cout << "dequeue: " << tmp << endl;
+	}
+	if( !sq.enqueue(3) ){
+		cout << "enqueue: " << 3 << endl;
+	}
+	if( !sq.dequeue(&tmp) ){
+		cout << "dequeue: " << tmp << endl;
+	}
+	if( !sq.enqueue(3) ){
+		cout << "enqueue: " << 3 << endl;
+	}
+	if( !sq.enqueue(5) ){
+		cout << "enqueue: " << 5 << endl;
+	}
+	if( !sq.enqueue(99) ){
+		cout << "enqueue: " << 99 << endl;
+	}
+	if( !sq.dequeue(&tmp) ){
+		cout << "dequeue: " << tmp << endl;
+	}
+	if( !sq.dequeue(&tmp) ){
+		cout << "dequeue: " << tmp << endl;
+	}
+	if( !sq.clear() ){
+		cout << "clear: " << endl;
+	}
+	if( !sq.dequeue(&tmp) ){
+		cout << "dequeue: " << tmp << endl;
 	}
 
-	tmp = tree1.pre( tree1.maximum());
-	if(tmp != NULL){
-		cout << (* tmp).getValue() << endl;
-	}else{
-		cerr << "error NO PRE !" << endl;
-	}
+	system("pause");
+	return 0;
+}
 
-	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
-	tree1.printTreePre( ); 
 
-	tree1.deleteEntry( 3 ); cout << "delete 3 :" << endl;
-	tree1.printTreePre( ); 
-
-	tree1.deleteEntry( 4 ); cout << "delete 4 :" << endl;
-	tree1.printTreePre( ); 
-
-	tree1.deleteEntry( 9 ); cout << "delete 9 :" << endl;
-	tree1.printTreePre( ); 
-
-	tree1.deleteEntry( 2 ); cout << "delete 2 :" << endl;
-	tree1.printTreePre( ); 
-
-	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
-	tree1.printTreePre( ); 
-
-	tmp = NULL; 
-
-	system("pause"); 
-	return 0; 
-} 
 
