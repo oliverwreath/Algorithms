@@ -5,22 +5,22 @@
 using namespace std; 
 
 template <class T>
-class node{
+class TreeNode{
 private: 
 	T value;
-	node * left; 
-	node * right;
-	node * parent; 
+	TreeNode * left; 
+	TreeNode * right;
+	TreeNode * parent; 
 
 public:
-	node(){
+	TreeNode(){
 		value = 0;
 		left = NULL; 
 		right = NULL;
 		parent = NULL; 
 	}
 
-	node( T entry){
+	TreeNode( T entry){
 		value = entry;
 		left = NULL; 
 		right = NULL;
@@ -31,51 +31,51 @@ public:
 		return value;
 	}
 
-	node * getLeft(){
+	TreeNode * getLeft(){
 		return left;
 	}
 
-	node * getRight(){
+	TreeNode * getRight(){
 		return right;
 	}
 
-	node * getParent(){
+	TreeNode * getParent(){
 		return parent;
 	}
 
-	void setLeft( node * y ){
+	void setLeft( TreeNode * y ){
 		left = y;
 	}
 
-	void setRight( node * y ){
+	void setRight( TreeNode * y ){
 		right = y;
 	}
 
-	void setParent( node * y ){
+	void setParent( TreeNode * y ){
 		parent = y;
 	}
 
 };
 
 template <class T>
-class tree{
+class Tree{
 private:
-	node<T> * root;
+	TreeNode<T> * root;
 
 public: 
-	tree(){ 
+	Tree(){ 
 		root = NULL;
 	}
-	tree( node<T> * rt ){ 
+	Tree( TreeNode<T> * rt ){ 
 		root = rt;
 	}
 
-	node<T> * getRoot(){
+	TreeNode<T> * getRoot(){
 		return root; 
 	}
 
-	node<T> * minimum( node<T> * original ){
-		node<T> * tmp = original;
+	TreeNode<T> * minimum( TreeNode<T> * original ){
+		TreeNode<T> * tmp = original;
 		if( tmp == NULL ){
 			return NULL; 
 		}
@@ -87,8 +87,8 @@ public:
 		return tmp; 
 	}
 
-	node<T> * maximum( node<T> * original ){
-		node<T> * tmp = original;
+	TreeNode<T> * maximum( TreeNode<T> * original ){
+		TreeNode<T> * tmp = original;
 		if( tmp == NULL ){
 			return NULL; 
 		}
@@ -100,8 +100,8 @@ public:
 		return tmp; 
 	}
 
-	node<T> * minimum(){
-		node<T> * tmp = root;
+	TreeNode<T> * minimum(){
+		TreeNode<T> * tmp = root;
 		if( tmp == NULL ){
 			return NULL; 
 		}
@@ -113,8 +113,8 @@ public:
 		return tmp; 
 	}
 
-	node<T> * maximum(){
-		node<T> * tmp = root;
+	TreeNode<T> * maximum(){
+		TreeNode<T> * tmp = root;
 		if( tmp == NULL ){
 			return NULL; 
 		}
@@ -126,15 +126,15 @@ public:
 		return tmp; 
 	}
 
-	node<T> * pre( node<T> * original ){
+	TreeNode<T> * pre( TreeNode<T> * original ){
 		if( original == NULL ){
 			return original;
 		}
-		node<T> * tmp = original;
+		TreeNode<T> * tmp = original;
 		if( (* tmp).getLeft() != NULL ){
 			return maximum( (* tmp).getLeft() );
 		}
-		node<T> * y = (* tmp).getParent(); 
+		TreeNode<T> * y = (* tmp).getParent(); 
 		while( y != NULL && (* y).getLeft() == tmp ){
 			tmp = y; 
 			y = (* y).getParent();
@@ -143,15 +143,15 @@ public:
 		return y; 
 	}
 
-	node<T> * suc( node<T> * original ){
+	TreeNode<T> * suc( TreeNode<T> * original ){
 		if( original == NULL ){
 			return original;
 		}
-		node<T> * tmp = original;
+		TreeNode<T> * tmp = original;
 		if( (* tmp).getRight() != NULL ){
 			return minimum( (* tmp).getRight() );
 		}
-		node<T> * y = (* tmp).getParent(); 
+		TreeNode<T> * y = (* tmp).getParent(); 
 		while( y != NULL && (* y).getRight() == tmp ){
 			tmp = y; 
 			y = (* y).getParent();
@@ -177,7 +177,7 @@ public:
 		return printTreePosRec( root );
 	}
 
-	node<T> * searchTree( T entry ){ 
+	TreeNode<T> * searchTree( T entry ){ 
 		if( root == NULL || ((* root).getValue() == entry) ){ 
 			return root;
 		} 
@@ -189,15 +189,15 @@ public:
 		}
 	}
 
-	bool insertNode( node<T> * z ){ 
-		node<T> * y = root ; 
+	bool insertNode( TreeNode<T> * z ){ 
+		TreeNode<T> * y = root ; 
 
 		if( root == NULL ){ 
 			root = z; 
 			return true; 
 		} 
 
-		node<T> * tmp = root;
+		TreeNode<T> * tmp = root;
 		while( tmp != NULL ){ 
 			if( (* z).getValue() < (* tmp).getValue() ){
 				y = tmp;
@@ -220,9 +220,9 @@ public:
 		return true; 
 	}
 
-	bool deleteNode( node<T> * z ){
+	bool deleteNode( TreeNode<T> * z ){
 		if( z == NULL ){
-			cerr << "error: InValid Input: no such node or entry !" << endl;
+			cerr << "error: InValid Input: no such TreeNode or entry !" << endl;
 			return false;
 		}
 		if( (* z).getLeft() == NULL ){
@@ -232,7 +232,7 @@ public:
 			transPlant( z, (* z).getLeft() );
 		}
 		else{
-			node<T> * y = minimum( (* z).getRight() );
+			TreeNode<T> * y = minimum( (* z).getRight() );
 			if( (* y).getParent() != z ){
 				transPlant( y, (* y).getRight() );
 				(* y).setRight( (* z).getRight() );
@@ -250,8 +250,8 @@ public:
 	}
 
 private:
-	void transPlant( node<T> * u, node<T> * v ){
-		node<T> * p = (* u).getParent(); 
+	void transPlant( TreeNode<T> * u, TreeNode<T> * v ){
+		TreeNode<T> * p = (* u).getParent(); 
 		if( p == NULL ){
 			root = v;
 		}
@@ -268,7 +268,7 @@ private:
 		} 
 	}
 
-	void printTreeInRec( node<T> * root ){ 
+	void printTreeInRec( TreeNode<T> * root ){ 
 		//in-order
 		if( (* root).getLeft() != NULL ){
 			printTreeInRec( (* root).getLeft() );
@@ -281,7 +281,7 @@ private:
 		}
 	}
 
-	void printTreePreRec( node<T> * root ){ 
+	void printTreePreRec( TreeNode<T> * root ){ 
 		//pre-order
 		if( (* root).getValue() != NULL ){ 
 			cout << (* root).getValue() << " "; 
@@ -294,7 +294,7 @@ private:
 		}
 	}
 
-	void printTreePosRec( node<T> * root ){ 
+	void printTreePosRec( TreeNode<T> * root ){ 
 		//pos-order
 		if( (* root).getLeft() != NULL ){
 			printTreePosRec( (* root).getLeft() );
@@ -307,7 +307,7 @@ private:
 		} 
 	} 
 
-	node<T> * searchTreeRec( node<T> * root, T entry ){
+	TreeNode<T> * searchTreeRec( TreeNode<T> * root, T entry ){
 		if( root == NULL || ((* root).getValue() == entry) ){ 
 			return root;
 		} 

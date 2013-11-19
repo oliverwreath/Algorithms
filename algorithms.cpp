@@ -1,9 +1,11 @@
 
 #include <algorithms.h> 
 #include <iomanip>
+
 #include <sorting.h> 
 #include <binarySearchTrees.h>
 #include <staque.h>
+#include <linkedList.h>
 
 //typedef int entry_type;
 
@@ -72,29 +74,29 @@ using namespace std;
 ////binarySearchTrees 
 //int main() 
 //{ 
-//	node<int> newNode = node<int>(4); 
-//	tree<int> tree1( &node<int>(3) ); 
+//	TreeNode<int> newNode = TreeNode<int>(4); 
+//	Tree<int> tree1( &TreeNode<int>(3) ); 
 //	tree1.printTreePre( ); 
 //
 //	tree1.insertNode( &newNode ); 
 //	tree1.printTreePre( ); 
 //
-//	tree1.insertNode( &node<int>(1) ); 
+//	tree1.insertNode( &TreeNode<int>(1) ); 
 //	tree1.printTreePre( ); 
 //
-//	tree1.insertNode( &node<int>(2) ); 
+//	tree1.insertNode( &TreeNode<int>(2) ); 
 //	tree1.printTreePre( ); 
 //
-//	tree1.insertNode( &node<int>(9) ); 
+//	tree1.insertNode( &TreeNode<int>(9) ); 
 //	tree1.printTreePre( ); 
 //
-//	tree1.insertNode( &node<int>(2) ); 
+//	tree1.insertNode( &TreeNode<int>(2) ); 
 //	tree1.printTreePre( ); 
 //
-//	tree1.insertNode( &node<int>(4) ); 
+//	tree1.insertNode( &TreeNode<int>(4) ); 
 //	tree1.printTreePre( ); 
 //
-//	tree1.insertNode( &node<int>(8) ); 
+//	tree1.insertNode( &TreeNode<int>(8) ); 
 //	tree1.printTreePre( ); 
 //
 //	cout << (* tree1.searchTree( 3 ) ).getValue() << endl; 
@@ -103,7 +105,7 @@ using namespace std;
 //
 //	cout << (* tree1.maximum()).getValue() << endl; 
 //
-//	node<int> * tmp = tree1.suc( tree1.minimum()); 
+//	TreeNode<int> * tmp = tree1.suc( tree1.minimum()); 
 //	if(tmp != NULL){
 //		cout << (* tmp).getValue() << endl; 
 //	}else{
@@ -154,110 +156,147 @@ using namespace std;
 //	system("pause"); 
 //	return 0; 
 //} 
-//
 
-//staque
+////staque
+//int main()
+//{
+//	Stack<int> st = Stack<int>();
+//	int tmp = 0;
+//
+//	if( !st.top(&tmp) ){
+//		cout << "top: " << tmp << endl;
+//	}
+//	if( !st.pop() ){
+//		cout << "pop " << endl;
+//	}
+//	if( !st.push(3) ){
+//		cout << "push: " << 3 << endl;
+//	}
+//	if( !st.top(&tmp) ){
+//		cout << "top: " << tmp << endl;
+//	}
+//	if( !st.push(5) ){
+//		cout << "push: " << 5 << endl;
+//	}
+//	if( !st.top(&tmp) ){
+//		cout << "top: " << tmp << endl;
+//	}
+//	if( !st.clear() ){
+//		cout << "clear: " << endl;
+//	}
+//	if( !st.top(&tmp) ){
+//		cout << "top: " << tmp << endl;
+//	}
+//
+//	cout << endl;
+//	Queue<int> qt = Queue<int>();
+//
+//	if( !qt.retrieve(&tmp) ){
+//		cout << "retrieve: " << tmp << endl;
+//	}
+//	if( !qt.serve() ){
+//		cout << "serve " << endl;
+//	}
+//	if( !qt.append(3) ){
+//		cout << "append: " << 3 << endl;
+//	}
+//	if( !qt.retrieve(&tmp) ){
+//		cout << "retrieve: " << tmp << endl;
+//	}
+//	if( !qt.append(5) ){
+//		cout << "append: " << 5 << endl;
+//	}
+//	if( !qt.retrieve(&tmp) ){
+//		cout << "retrieve: " << tmp << endl;
+//	}
+//	if( !qt.serve() ){
+//		cout << "serve " << endl;
+//	}
+//	if( !qt.retrieve(&tmp) ){
+//		cout << "retrieve: " << tmp << endl;
+//	}
+//	if( !qt.clear() ){
+//		cout << "clear: " << endl;
+//	}
+//	if( !qt.retrieve(&tmp) ){
+//		cout << "retrieve: " << tmp << endl;
+//	}
+//
+//	cout << endl;
+//	Staque<int> sq = Staque<int>();
+//
+//	if( !sq.dequeue(&tmp) ){
+//		cout << "dequeue: " << tmp << endl;
+//	}
+//	if( !sq.enqueue(3) ){
+//		cout << "enqueue: " << 3 << endl;
+//	}
+//	if( !sq.dequeue(&tmp) ){
+//		cout << "dequeue: " << tmp << endl;
+//	}
+//	if( !sq.enqueue(3) ){
+//		cout << "enqueue: " << 3 << endl;
+//	}
+//	if( !sq.enqueue(5) ){
+//		cout << "enqueue: " << 5 << endl;
+//	}
+//	if( !sq.enqueue(99) ){
+//		cout << "enqueue: " << 99 << endl;
+//	}
+//	if( !sq.dequeue(&tmp) ){
+//		cout << "dequeue: " << tmp << endl;
+//	}
+//	if( !sq.dequeue(&tmp) ){
+//		cout << "dequeue: " << tmp << endl;
+//	}
+//	if( !sq.clear() ){
+//		cout << "clear: " << endl;
+//	}
+//	if( !sq.dequeue(&tmp) ){
+//		cout << "dequeue: " << tmp << endl;
+//	}
+//
+//	system("pause");
+//	return 0;
+//}
+
+//dLinkedList
 int main()
 {
-	Stack<int> st = Stack<int>();
-	int tmp = 0;
+	//Stack<int> st = Stack<int>();
+	//int tmp = 0;
 
-	if( !st.top(&tmp) ){
-		cout << "top: " << tmp << endl;
-	}
-	if( !st.pop() ){
-		cout << "pop " << endl;
-	}
-	if( !st.push(3) ){
-		cout << "push: " << 3 << endl;
-	}
-	if( !st.top(&tmp) ){
-		cout << "top: " << tmp << endl;
-	}
-	if( !st.push(5) ){
-		cout << "push: " << 5 << endl;
-	}
-	if( !st.top(&tmp) ){
-		cout << "top: " << tmp << endl;
-	}
-	if( !st.clear() ){
-		cout << "clear: " << endl;
-	}
-	if( !st.top(&tmp) ){
-		cout << "top: " << tmp << endl;
-	}
+	dLinkedList<int> ll = dLinkedList<int>();
 
-	cout << endl;
-	Queue<int> qt = Queue<int>();
+	bool ret = ll.contains(3);
+	if(ret){ cout << "contains: 3!" << endl; }else{ cout << "contains: NOT ANY 3!" << endl; }
+	
+	ll.addLast(3);
+	ll.print();
 
-	if( !qt.retrieve(&tmp) ){
-		cout << "retrieve: " << tmp << endl;
-	}
-	if( !qt.serve() ){
-		cout << "serve " << endl;
-	}
-	if( !qt.append(3) ){
-		cout << "append: " << 3 << endl;
-	}
-	if( !qt.retrieve(&tmp) ){
-		cout << "retrieve: " << tmp << endl;
-	}
-	if( !qt.append(5) ){
-		cout << "append: " << 5 << endl;
-	}
-	if( !qt.retrieve(&tmp) ){
-		cout << "retrieve: " << tmp << endl;
-	}
-	if( !qt.serve() ){
-		cout << "serve " << endl;
-	}
-	if( !qt.retrieve(&tmp) ){
-		cout << "retrieve: " << tmp << endl;
-	}
-	if( !qt.clear() ){
-		cout << "clear: " << endl;
-	}
-	if( !qt.retrieve(&tmp) ){
-		cout << "retrieve: " << tmp << endl;
-	}
+	ret = ll.contains(3);
+	if(ret){ cout << "contains: 3!" << endl; }else{ cout << "contains: NOT ANY 3!" << endl; }
 
-	cout << endl;
-	Staque<int> sq = Staque<int>();
+	ll.addLast(1);
+	ll.print();
 
-	if( !sq.dequeue(&tmp) ){
-		cout << "dequeue: " << tmp << endl;
-	}
-	if( !sq.enqueue(3) ){
-		cout << "enqueue: " << 3 << endl;
-	}
-	if( !sq.dequeue(&tmp) ){
-		cout << "dequeue: " << tmp << endl;
-	}
-	if( !sq.enqueue(3) ){
-		cout << "enqueue: " << 3 << endl;
-	}
-	if( !sq.enqueue(5) ){
-		cout << "enqueue: " << 5 << endl;
-	}
-	if( !sq.enqueue(99) ){
-		cout << "enqueue: " << 99 << endl;
-	}
-	if( !sq.dequeue(&tmp) ){
-		cout << "dequeue: " << tmp << endl;
-	}
-	if( !sq.dequeue(&tmp) ){
-		cout << "dequeue: " << tmp << endl;
-	}
-	if( !sq.clear() ){
-		cout << "clear: " << endl;
-	}
-	if( !sq.dequeue(&tmp) ){
-		cout << "dequeue: " << tmp << endl;
-	}
+	ll.addFirst(9);
+	ll.print();
+
+	ll.addFirst(6);
+	ll.print();
+
+	ll.addFirst(13);
+	ll.print();
+
+	ll.addBefore( ll.find(3), 6 );
+	ll.print();
+	
+	ll.addAfter( ll.findLast(6), 7 );
+	ll.print();
 
 	system("pause");
 	return 0;
 }
-
 
 
