@@ -18,6 +18,9 @@ Algorithms Implemented so far:
 - Binary Search Tree
 -- Prioritized Queue/ Dictionary
 
+**double LinkedList**
+- addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove
+
 **Others:** 
 - Stack: rotated Stack
 - Queue: by 2 Stacks
