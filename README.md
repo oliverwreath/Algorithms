@@ -26,8 +26,7 @@ Algorithms Implemented so far:
 - Queue: by 2 Stacks
 - Staque: Queue made by 2 Stacks
 
-Disclaimer:
+Last:
 -----------
 Have fun! 
 
-All Rights Reserved. 
