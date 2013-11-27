@@ -16,7 +16,9 @@ Algorithms Implemented so far:
 
 **Trees:**
 - Binary Search Tree
--- Prioritized Queue/ Dictionary
+
+**Vector/ ArrayList**
+- Vector<Type>::at Vector<Type>::back Vector<Type>::begin Vector<Type>::clear Vector<Type>::empty Vector<Type>::end Vector<Type>::erase Vector<Type>::erase Vector<Type>::expand Vector<Type>::front Vector<Type>::getBuffer Vector<Type>::getCapacity Vector<Type>::getSize Vector<Type>::pop_back Vector<Type>::push_back Vector<Type>::setBuffer Vector<Type>::setCapacity Vector<Type>::setSize Vector<Type>::Vector Vector<Type>::Vector Vector<Type>::Vector
 
 **double LinkedList**
 - addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove

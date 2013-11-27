@@ -75,7 +75,7 @@ public:
 		}
 	}
 
-	void swap( Type A [], int q, int r ){ 
+	void swap( iterator A, int q, int r ){ 
 		if( q == r ){
 			return ;
 		}
@@ -90,7 +90,7 @@ public:
 		return ;
 	}
 
-	int randPartition( Type A [], int p, int r ){ 
+	int randPartition( iterator A, const int p, const int r ){ 
 		//srand( (unsigned)time(NULL) ); 
 		int randR = rand() % (r - p + 1) + p; 
 		//if( randR < p || (randR > r) ){ 
@@ -120,7 +120,7 @@ public:
 		return i; 
 	} 
 
-	void randQuickSort( Type A [], int p, int r ){ 
+	void randQuickSort( iterator A, int p, const int r ){ 
 		while( p + 7 < r ){ 
 			int q = randPartition( A, p, r ); 
 			//cout << "p, r: " << p << " " << r << endl; 
@@ -150,7 +150,7 @@ public:
 		return ; 
 	} 
 
-	int partition( Type A [], int p, int r ){ 
+	int partition( iterator A, int p, int r ){ 
 		int pivot = A[r];
 		int i = p-1;
 
@@ -167,7 +167,7 @@ public:
 		return i + 1;
 	}
 
-	void quickSort( Type A [], int p, int r ){ 
+	void quickSort( iterator A, int p, int r ){ 
 		if( p + 7 < r  ){
 			int q = partition( A, p, r );
 			quickSort( A, p, q - 1 );
@@ -184,7 +184,7 @@ public:
 		return ;
 	} 
 
-	void insertionSort( Type A [], int p, int r ){ 
+	void insertionSort( iterator A, int p, int r ){ 
 		F( i, p+1, r ){
 			FB( j, i, p + 1 ){
 				if( A[j] < A[j - 1] ){
@@ -199,7 +199,7 @@ public:
 		return ;
 	} 
 
-	void insertionSort( int p, int r ){ 
+	void insertionSort( const int p, const int r ){ 
 		F( i, p+1, r ){
 			FB( j, i, p + 1 ){
 				if( A[j] < A[j - 1] ){
@@ -214,7 +214,7 @@ public:
 		return ;
 	} 
 
-	void selectionSort( Type A [], int p, int r ){ 
+	void selectionSort( iterator A, const int p, const int r ){ 
 		// denote p = 0, r = n-1 
 		F( i, 1, r ){
 			int begin = p + i - 1; 
@@ -231,7 +231,7 @@ public:
 		return ;
 	} 
 
-	void selectionSort( int p, int r ){ 
+	void selectionSort( const int p, const int r ){ 
 		// denote p = 0, r = n-1 
 		F( i, 1, r ){
 			int begin = p + i - 1; 
@@ -248,7 +248,7 @@ public:
 		return ;
 	} 
 
-	void selectionSort2Way( Type A [], int p, int r ){ 
+	void selectionSort2Way( iterator A, const int p, const int r ){ 
 		// denote p = 0, r = n-1 
 		int n = r - p + 1; //total number 
 
@@ -289,7 +289,7 @@ public:
 		return ;
 	} 
 
-	void selectionSort2Way( int p, int r ){ 
+	void selectionSort2Way( const int p, const int r ){ 
 		// denote p = 0, r = n-1 
 		int n = r - p + 1; //total number 
 
@@ -330,7 +330,7 @@ public:
 		return ;
 	} 
 
-	void selectionSort2WayV2( Type A [], int p, int r ){ 
+	void selectionSort2WayV2( iterator A, const int p, const int r ){ 
 		// denote p = 0, r = n-1 
 		int n = r - p + 1; //total number 
 
@@ -401,7 +401,7 @@ public:
 		return ;
 	} 
 
-	void selectionSort2WayV2( int p, int r ){ 
+	void selectionSort2WayV2( const int p, const int r ){ 
 		// denote p = 0, r = n-1 
 		int n = r - p + 1; //total number 
 
@@ -472,7 +472,7 @@ public:
 		return ;
 	} 
 
-	void bbSort( Type A [], int p, int r ){
+	void bbSort( iterator A, const int p, const int r ){
 		// denote p = 0, r = n-1
 		int times = 1;
 		while(times > 0){
@@ -488,7 +488,7 @@ public:
 		return ;
 	}
 
-	bool doneYet( Type A [], int p, int r ){
+	bool doneYet( iterator A, const int p, const int r ){
 		// denote p = 0, r = n-1
 		F( i, p, r-1 ){ 
 			if( A[i] > A[i+1] ){ 
@@ -499,7 +499,7 @@ public:
 		return true;
 	}
 
-	bool doneYet( int p, int r ){
+	bool doneYet( const int p, const int r ){
 		// denote p = 0, r = n-1
 		F( i, p, r-1 ){ 
 			if( A[i] > A[i+1] ){ 
@@ -510,7 +510,7 @@ public:
 		return true;
 	}
 
-	void printArray( int length ){
+	void printArray( const int length ){
 		cout << length << endl ;
 		F( i, 0, length - 1 ){ 
 			cout << A[i] << ' '; 
