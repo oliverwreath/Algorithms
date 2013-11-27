@@ -6,70 +6,71 @@
 #include <binarySearchTrees.h>
 #include <staque.h>
 #include <linkedList.h>
+#include <vector.h>
 
 //typedef int entry_type;
 
 using namespace std;
 
-////sorting
-//int main()
-//{
-//	//MergeSort
-//		//generate data as input 
-//	srand( (unsigned)time(NULL) ); 
-//	sorting<double> st = sorting<double>(MAXArray+1); 
-//	sorting<double> st3 = sorting<double>(MAXArray+1); 
-//
-//		//operations
-//	clock_t c1, c1e, c3, c3e;  
-//	c1 = clock();
-//	st.selectionSort( 0, MAXArray ); 
-//	c1e = clock();
-//
-//	////QuickSort
-//	//	//operations 
-//	//c2 = clock(); 
-//	//quickSort( in_array2, 0, MAXArray );
-//	//c2e = clock();
-//
-//	//randQuickSort 
-//		//operations
-//	c3 = clock(); 
-//	st3.selectionSort2WayV2( 0, MAXArray ); 
-//	c3e = clock(); 
-//
-//	///output 
-//	//st.printArray( MAXArray + 1 ); 
-//
-//	//st2.printArray( MAXArray + 1 ); 
-//
-//	//st3.printArray( MAXArray + 1 ); 
-//
-//	cout << MAXArray << " uniformly random numbers!" << endl; 
-//
-//	bool ret = false; 
-//	ret = st.doneYet( 0, MAXArray );
-//	if( ret ){
-//		cout << "array1: IS done! " << endl;
-//	}else{
-//		cout << "array1: NOT done! " << endl;
-//	}
-//
-//	ret = st3.doneYet( 0, MAXArray ); 
-//	if( ret ){
-//		cout << "array3: IS done! " << endl;
-//	}else{
-//		cout << "array3: NOT done! " << endl;
-//	}
-//
-//	//output Timer
-//	cout << "MergeS : " << setprecision(9) << (double)(c1e - c1)/CLOCKS_PER_SEC << endl;
-//	//cout << setprecision(9) << "QuickSort : " << (double)(c2e - c2)/CLOCKS_PER_SEC << endl;
-//	cout << "randQuickSort : " << setprecision(9) << (double)(c3e - c3)/CLOCKS_PER_SEC << endl;
-//
-//	system("pause");
-//	return 0;
-//}
+//sorting
+int main()
+{
+	//MergeSort
+		//generate data as input 
+	srand( (unsigned)time(NULL) ); 
+	sorting<double> st = sorting<double>(MAXArray+1); 
+	sorting<double> st3 = sorting<double>(MAXArray+1); 
+
+		//operations
+	clock_t c1, c1e, c3, c3e;  
+	c1 = clock();
+	st.selectionSort( 0, MAXArray ); 
+	c1e = clock();
+
+	////QuickSort
+	//	//operations 
+	//c2 = clock(); 
+	//quickSort( in_array2, 0, MAXArray );
+	//c2e = clock();
+
+	//randQuickSort 
+		//operations
+	c3 = clock(); 
+	st3.selectionSort2WayV2( 0, MAXArray ); 
+	c3e = clock(); 
+
+	///output 
+	//st.printArray( MAXArray + 1 ); 
+
+	//st2.printArray( MAXArray + 1 ); 
+
+	//st3.printArray( MAXArray + 1 ); 
+
+	cout << MAXArray << " uniformly random numbers!" << endl; 
+
+	bool ret = false; 
+	ret = st.doneYet( 0, MAXArray );
+	if( ret ){
+		cout << "array1: IS done! " << endl;
+	}else{
+		cout << "array1: NOT done! " << endl;
+	}
+
+	ret = st3.doneYet( 0, MAXArray ); 
+	if( ret ){
+		cout << "array3: IS done! " << endl;
+	}else{
+		cout << "array3: NOT done! " << endl;
+	}
+
+	//output Timer
+	cout << "MergeS : " << setprecision(9) << (double)(c1e - c1)/CLOCKS_PER_SEC << endl;
+	//cout << setprecision(9) << "QuickSort : " << (double)(c2e - c2)/CLOCKS_PER_SEC << endl;
+	cout << "randQuickSort : " << setprecision(9) << (double)(c3e - c3)/CLOCKS_PER_SEC << endl;
+
+	system("pause");
+	return 0;
+}
 
 ////binarySearchTrees 
 //int main() 
@@ -260,43 +261,89 @@ using namespace std;
 //	return 0;
 //}
 
-//dLinkedList
-int main()
-{
-	//Stack<int> st = Stack<int>();
-	//int tmp = 0;
+////dLinkedList
+//int main()
+//{
+//	//Stack<int> st = Stack<int>();
+//	//int tmp = 0;
+//
+//	dLinkedList<int> ll = dLinkedList<int>();
+//
+//	bool ret = ll.contains(3);
+//	if(ret){ cout << "contains: 3!" << endl; }else{ cout << "contains: NOT ANY 3!" << endl; }
+//	
+//	ll.addLast(3);
+//	ll.print();
+//
+//	ret = ll.contains(3);
+//	if(ret){ cout << "contains: 3!" << endl; }else{ cout << "contains: NOT ANY 3!" << endl; }
+//
+//	ll.addLast(1);
+//	ll.print();
+//
+//	ll.addFirst(9);
+//	ll.print();
+//
+//	ll.addFirst(6);
+//	ll.print();
+//
+//	ll.addFirst(13);
+//	ll.print();
+//
+//	ll.addBefore( ll.find(3), 6 );
+//	ll.print();
+//	
+//	ll.addAfter( ll.findLast(6), 7 );
+//	ll.print();
+//
+//	system("pause");
+//	return 0;
+//}
 
-	dLinkedList<int> ll = dLinkedList<int>();
-
-	bool ret = ll.contains(3);
-	if(ret){ cout << "contains: 3!" << endl; }else{ cout << "contains: NOT ANY 3!" << endl; }
-	
-	ll.addLast(3);
-	ll.print();
-
-	ret = ll.contains(3);
-	if(ret){ cout << "contains: 3!" << endl; }else{ cout << "contains: NOT ANY 3!" << endl; }
-
-	ll.addLast(1);
-	ll.print();
-
-	ll.addFirst(9);
-	ll.print();
-
-	ll.addFirst(6);
-	ll.print();
-
-	ll.addFirst(13);
-	ll.print();
-
-	ll.addBefore( ll.find(3), 6 );
-	ll.print();
-	
-	ll.addAfter( ll.findLast(6), 7 );
-	ll.print();
-
-	system("pause");
-	return 0;
-}
-
-
+////Vector
+//int main()
+//{ 
+//   Vector <int> v1;
+//   Vector <int>::iterator Iter;
+//   
+//   v1.push_back( 10 );
+//   v1.push_back( 20 );
+//   v1.push_back( 30 );
+//   v1.push_back( 40 );
+//   v1.push_back( 50 );
+//
+//   cout << "v1 =" ;
+//   for ( Iter = v1.begin( ) ; Iter != v1.end( ) ; Iter++ )
+//      cout << " " << *Iter;
+//   cout << endl;
+//
+//   v1.erase( v1.begin( ) );
+//   cout << "v1 =";
+//   for ( Iter = v1.begin( ) ; Iter != v1.end( ) ; Iter++ )
+//      cout << " " << *Iter;
+//   cout << endl;
+//
+//   v1.erase( v1.begin( ) + 1, v1.begin( ) + 3 );
+//   cout << "v1 =";
+//   for ( Iter = v1.begin( ) ; Iter != v1.end( ) ; Iter++ )
+//      cout << " " << *Iter;
+//   cout << endl;
+//
+//   v1.clear();
+//   cout << "v1 =";
+//   for ( Iter = v1.begin( ) ; Iter != v1.end( ) ; Iter++ )
+//      cout << " " << *Iter;
+//   cout << endl;
+//
+//   v1.push_back( 40 );
+//   v1.push_back( 50 );
+//   v1.pop_back();
+//   v1.push_back( 60 );
+//   cout << "v1 =";
+//   for ( Iter = v1.begin( ) ; Iter != v1.end( ) ; Iter++ )
+//      cout << " " << *Iter;
+//   cout << endl;
+//
+//	system("pause");
+//	return 0;
+//}

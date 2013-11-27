@@ -16,28 +16,28 @@
 
 using namespace std;
 
-template<class T> 
+template<class Type> 
 class sorting{ 
-private:
-	T * A;
-
 public: 
-	sorting(){
+	//
+	typedef Type* iterator;
+	//constructor
+	sorting(){ 
 		A = NULL;
 	}
 
 	sorting( int length ){ 
-		A = new T [length]; 
+		A = new Type [length]; 
 
 		F( i, 0, MAXArray ){ 
-			A[i] = (T)rand()/(RAND_MAX + 1) * (MAXArray-0) - (MAXArray/2); 
+			A[i] = (Type)rand()/(RAND_MAX + 1) * (MAXArray-0) - (MAXArray/2); 
 		} 
 	} 
 
-	int merge( T in_array [], int m, int begin, int end ){
+	int merge( iterator in_array, const int m, const int begin, const int end ){
 		//smallest first
 		int n = end - begin + 1;
-		T * B = new T [n];
+		iterator B = new Type [n];
 		int i = begin;
 		int j = m+1;
 		F( k, 0, n-1 ){
@@ -57,7 +57,7 @@ public:
 		return 0;
 	}
 
-	void mergeSort( T in_array [], int begin, int end ){
+	void mergeSort( iterator in_array, const int begin, const int end ){
 		int n = end - begin + 1;
 		if( n > 1 ){
 			mergeSort( in_array, begin, begin + n/2 - 1 ); 
@@ -66,7 +66,7 @@ public:
 		}
 	}
 
-	void mergeSort( int begin, int end ){
+	void mergeSort( const int begin, const int end ){
 		int n = end - begin + 1;
 		if( n > 1 ){
 			mergeSort( A, begin, begin + n/2 - 1 ); 
@@ -75,12 +75,12 @@ public:
 		}
 	}
 
-	void swap( T A [], int q, int r ){ 
+	void swap( Type A [], int q, int r ){ 
 		if( q == r ){
 			return ;
 		}
 		else{
-			T tmp = A[q]; 
+			Type tmp = A[q]; 
 			A[q] = A[r]; 
 			A[r] = tmp; 
 			//A[q] = A[q] ^ A[r];
@@ -90,7 +90,7 @@ public:
 		return ;
 	}
 
-	int randPartition( T A [], int p, int r ){ 
+	int randPartition( Type A [], int p, int r ){ 
 		//srand( (unsigned)time(NULL) ); 
 		int randR = rand() % (r - p + 1) + p; 
 		//if( randR < p || (randR > r) ){ 
@@ -99,7 +99,7 @@ public:
 		swap( A, r, randR ); 
 
 		//partition
-		T pivot = A[r];
+		Type pivot = A[r];
 		int i = p; 
 		int j = r; 
 
@@ -120,7 +120,7 @@ public:
 		return i; 
 	} 
 
-	void randQuickSort( T A [], int p, int r ){ 
+	void randQuickSort( Type A [], int p, int r ){ 
 		while( p + 7 < r ){ 
 			int q = randPartition( A, p, r ); 
 			//cout << "p, r: " << p << " " << r << endl; 
@@ -150,7 +150,7 @@ public:
 		return ; 
 	} 
 
-	int partition( T A [], int p, int r ){ 
+	int partition( Type A [], int p, int r ){ 
 		int pivot = A[r];
 		int i = p-1;
 
@@ -167,7 +167,7 @@ public:
 		return i + 1;
 	}
 
-	void quickSort( T A [], int p, int r ){ 
+	void quickSort( Type A [], int p, int r ){ 
 		if( p + 7 < r  ){
 			int q = partition( A, p, r );
 			quickSort( A, p, q - 1 );
@@ -184,7 +184,7 @@ public:
 		return ;
 	} 
 
-	void insertionSort( T A [], int p, int r ){ 
+	void insertionSort( Type A [], int p, int r ){ 
 		F( i, p+1, r ){
 			FB( j, i, p + 1 ){
 				if( A[j] < A[j - 1] ){
@@ -214,12 +214,12 @@ public:
 		return ;
 	} 
 
-	void selectionSort( T A [], int p, int r ){ 
+	void selectionSort( Type A [], int p, int r ){ 
 		// denote p = 0, r = n-1 
 		F( i, 1, r ){
 			int begin = p + i - 1; 
 			int minIndex = begin; 
-			T minValue = A[begin]; 
+			Type minValue = A[begin]; 
 			F( j, begin, r ){
 				if( minValue > A[j] ){ 
 					minValue = A[j]; 
@@ -236,7 +236,7 @@ public:
 		F( i, 1, r ){
 			int begin = p + i - 1; 
 			int minIndex = begin; 
-			T minValue = A[begin]; 
+			Type minValue = A[begin]; 
 			F( j, begin, r ){
 				if( minValue > A[j] ){ 
 					minValue = A[j]; 
@@ -248,7 +248,7 @@ public:
 		return ;
 	} 
 
-	void selectionSort2Way( T A [], int p, int r ){ 
+	void selectionSort2Way( Type A [], int p, int r ){ 
 		// denote p = 0, r = n-1 
 		int n = r - p + 1; //total number 
 
@@ -256,10 +256,10 @@ public:
 			int begin = p + i - 1;
 			int end = r - i + 1;
 
-			T minValue = A[begin]; 
+			Type minValue = A[begin]; 
 			int minIndex = begin; 
 
-			T maxValue = A[begin]; 
+			Type maxValue = A[begin]; 
 			int maxIndex = begin; 
 
 			F(j, p + i - 1, r - i + 1 ){ 
@@ -297,10 +297,10 @@ public:
 			int begin = p + i - 1;
 			int end = r - i + 1;
 
-			T minValue = A[begin]; 
+			Type minValue = A[begin]; 
 			int minIndex = begin; 
 
-			T maxValue = A[begin]; 
+			Type maxValue = A[begin]; 
 			int maxIndex = begin; 
 
 			F(j, p + i - 1, r - i + 1 ){ 
@@ -330,7 +330,7 @@ public:
 		return ;
 	} 
 
-	void selectionSort2WayV2( T A [], int p, int r ){ 
+	void selectionSort2WayV2( Type A [], int p, int r ){ 
 		// denote p = 0, r = n-1 
 		int n = r - p + 1; //total number 
 
@@ -348,10 +348,10 @@ public:
 			int begin = p + i - 1;
 			int end = r - i + 1;
 
-			T minValue = A[begin]; 
+			Type minValue = A[begin]; 
 			int minIndex = begin; 
 
-			T maxValue = A[begin]; 
+			Type maxValue = A[begin]; 
 			int maxIndex = begin; 
 
 			int j = begin; 
@@ -419,10 +419,10 @@ public:
 			int begin = p + i - 1;
 			int end = r - i + 1;
 
-			T minValue = A[begin]; 
+			Type minValue = A[begin]; 
 			int minIndex = begin; 
 
-			T maxValue = A[begin]; 
+			Type maxValue = A[begin]; 
 			int maxIndex = begin; 
 
 			int j = begin; 
@@ -472,7 +472,7 @@ public:
 		return ;
 	} 
 
-	void bbSort( T A [], int p, int r ){
+	void bbSort( Type A [], int p, int r ){
 		// denote p = 0, r = n-1
 		int times = 1;
 		while(times > 0){
@@ -488,7 +488,7 @@ public:
 		return ;
 	}
 
-	bool doneYet( T A [], int p, int r ){
+	bool doneYet( Type A [], int p, int r ){
 		// denote p = 0, r = n-1
 		F( i, p, r-1 ){ 
 			if( A[i] > A[i+1] ){ 
@@ -518,5 +518,6 @@ public:
 		cout << endl; 
 	} 
 
-
+private:
+	iterator A;
 };

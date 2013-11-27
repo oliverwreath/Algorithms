@@ -291,9 +291,9 @@ public:
 				tmpMarker = tmp; 
 			}
 			tmp = (* tmp).getNext(); 
-		}
+		} 
 		return tmpMarker; 
-	}
+	} 
 
 	bool contains( T valueToFind ){ 
 		dLinkedListNode<T> * tmp = first; 

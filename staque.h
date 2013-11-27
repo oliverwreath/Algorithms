@@ -1,13 +1,16 @@
 
 
-template<class T>
+template<class Type>
 class Queue{
 public:
+	//
+	typedef Type* iterator;
+	//constructor
 	Queue(){
 		begin = 0;
 		end = 0;
 		length = 0;
-		entry_array = new T [maxLen];
+		entry_array = new Type [maxLen];
 	}
 
 	int next(int ret){
@@ -20,7 +23,7 @@ public:
 		return ret;
 	}
 
-	int append( T entry ){
+	int append( Type entry ){
 		if( !full() ){
 			entry_array[end] = entry;
 			end = next(end);
@@ -45,7 +48,7 @@ public:
 		}
 	}
 
-	int retrieve( T *ret ){
+	int retrieve( iterator ret ){
 		if( !empty() ){
 			* ret = entry_array[begin];
 			return 0;
@@ -86,21 +89,24 @@ public:
 	}
 
 private:
-	T * entry_array ;
+	iterator entry_array ;
 	int length;
 	int begin;
 	int end;
 };
 
-template<class T>
+template<class Type>
 class Stack{
 public:
+	//
+	typedef Type* iterator;
+	//constructor
 	Stack(){
 		length = 0;
-		entry_array = new T [maxLen];
+		entry_array = new Type [maxLen];
 	}
 
-	int push( T entry ){
+	int push( Type entry ){
 		if( !full() ){
 			entry_array[length] = entry;
 			length++;
@@ -123,7 +129,7 @@ public:
 		}
 	}
 
-	int top( T *ret ){
+	int top( iterator ret ){
 		if( !empty() ){
 			* ret = entry_array[length-1];
 			return 0;
@@ -162,27 +168,30 @@ public:
 	}
 
 private:
-	T * entry_array ;
+	iterator entry_array ;
 	int length;
 };
 
-template<class T>
+template<class Type>
 class Staque{
 public: 
+	//
+	typedef Type* iterator;
+	//constructor
 	Staque(){
-		st1 = Stack<T>();
-		st2 = Stack<T>();
+		st1 = Stack<Type>();
+		st2 = Stack<Type>();
 	}
 
-	int enqueue( T in ){
+	int enqueue( Type in ){
 		int ret = st1.push( in );
 		return ret;
 	}
 
-	int dequeue( T * out ){
+	int dequeue( iterator out ){
 		if( st2.empty() ){
 			while( !st1.empty() ){
-				T tmp;
+				Type tmp;
 				st1.top( &tmp );
 				st2.push( tmp );
 				st1.pop();
@@ -209,7 +218,7 @@ public:
 	}
 
 private:
-	Stack<T> st1;
-	Stack<T> st2;
+	Stack<Type> st1;
+	Stack<Type> st2;
 };
 

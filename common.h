@@ -6,7 +6,7 @@
 
 #define MAX3(a, b, c) (a>b?a:b)>c?(a>b?a:b):c
 
-#define MAXArray 999
+#define MAXArray 9999
 #define MAXDP 100001
 #define maxLen 100001
 
