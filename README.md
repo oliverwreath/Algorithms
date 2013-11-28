@@ -4,7 +4,7 @@ For learning, demonstration and for fun!
 
 ## Algorithms Implemented so far:
 
-### Sorting Fantasy:
+#### Sorting Fantasy:
 - randomized QuickSort + Insertion optimization + half stack overhead + two way partition; 
 - Merge Sort; 
 - Selection Sort
@@ -12,12 +12,15 @@ For learning, demonstration and for fun!
 - Bubble Sort !
 - Insertion
  
-### Searching
+#### Searching
 - Binary Search
 
-### Data Structures
+#### Data Structures
 - Binary Search Tree
+- - double LinkedList
+_addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove_
 - Vector/ ArrayList
+
 ```cpp
 Vector<Type>::at Vector<Type>::back Vector<Type>::begin Vector<Type>::clear Vector<Type>::empty Vector<Type>::end 
 Vector<Type>::erase Vector<Type>::erase Vector<Type>::expand Vector<Type>::front Vector<Type>::getBuffer
@@ -25,12 +28,10 @@ Vector<Type>::getCapacity Vector<Type>::getSize Vector<Type>::pop_back Vector<Ty
 Vector<Type>::setBuffer Vector<Type>::setCapacity Vector<Type>::setSize 
 Vector<Type>::Vector Vector<Type>::Vector Vector<Type>::Vector
 ```
-- double LinkedList
-_addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove_
-- Stack: rotated Stack
-- Queue: by 2 Stacks
 - Staque: Queue made by 2 Stacks
+- - Stack: rotated Stack
+- Queue: by 2 Stacks
 
-## Last but most importantly:
+### Last but most important:
 Have fun! 
 
