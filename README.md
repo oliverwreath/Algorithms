@@ -19,6 +19,9 @@ For learning, demonstration and for fun!
 - Binary Search Tree
 - - double LinkedList
 _addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove_
+- Staque: Queue made by 2 Stacks
+- - Stack: rotated Stack
+- Queue: by 2 Stacks
 - Vector/ ArrayList
 
 ```cpp
@@ -28,9 +31,6 @@ Vector<Type>::getCapacity Vector<Type>::getSize Vector<Type>::pop_back Vector<Ty
 Vector<Type>::setBuffer Vector<Type>::setCapacity Vector<Type>::setSize 
 Vector<Type>::Vector Vector<Type>::Vector Vector<Type>::Vector
 ```
-- Staque: Queue made by 2 Stacks
-- - Stack: rotated Stack
-- Queue: by 2 Stacks
 
 ### Last but most important:
 Have fun! 
