@@ -5,12 +5,12 @@ For learning, demonstration and for fun!
 ### Algorithms:
 
 #### Sorting:
-- randomized QuickSort + Insertion optimization + half stack overhead + two way partition; 
-- Merge Sort; 
-- Selection Sort
-- Two-way-Selection Sort with 3/2 comparisons; 
-- Bubble Sort !
-- Insertion
+- randomized Quick-Sort + Insertion optimization + half stack overhead + two way partition; 
+- Merge-Sort
+- Selection-Sort
+- Two-way-Selection-Sort with 3*n/2 comparisons; 
+- Bubble-Sort
+- Insertion-Sort
  
 #### Searching:
 - Recursive Binary Search
