@@ -13,6 +13,9 @@ Algorithms Implemented so far:
 - Two-way-Selection Sort with 3/2 comparisons; 
 - Bubble Sort !
 - Insertion
+ 
+**Searching**
+- Binary Search
 
 **Trees:**
 - Binary Search Tree
