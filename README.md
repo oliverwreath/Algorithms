@@ -15,6 +15,9 @@ For learning, demonstration and for fun!
 #### Searching:
 - Recursive Binary Search
 - Iterative Binary Search
+- Minimum Search
+- Maximum Search
+- Simultaneously Min and Max Search
 
 ### Data Structures:
 - Binary Search Tree
