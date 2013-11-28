@@ -24,6 +24,8 @@ _addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove_
 - Queue: by 2 Stacks
 - Vector/ ArrayList
 
+## Appendix:
+**Vector API**
 ```cpp
 Vector<Type>::at Vector<Type>::back Vector<Type>::begin Vector<Type>::clear Vector<Type>::empty Vector<Type>::end 
 Vector<Type>::erase Vector<Type>::erase Vector<Type>::expand Vector<Type>::front Vector<Type>::getBuffer
