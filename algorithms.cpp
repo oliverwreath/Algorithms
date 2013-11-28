@@ -351,8 +351,8 @@ using namespace std;
 
 
 int main(){
-	Others* ot = new Others();
-	int array [] = {1, 2, 3, 4, 5, 6};
+	Others<int>* ot = new Others<int>();
+	int array [] = {-5, -2, 0, 1, 2, 3, 4, 5, 6};
 	int size = sizeof(array)/ sizeof(* array);
 
 	////hasDuplication
@@ -361,7 +361,7 @@ int main(){
 	//else{cout << "NOT has" << endl;}
 
 	//binarySearch
-	F( target, 0, 10 ){
+	F( target, -6, 8 ){
 		int ret = (*ot).binarySearchIter( array, 0, size-1, &target );
 		if( ret == (*ot).binarySearchValidator( array, 0, size-1, &target ) ){
 			cout << "binSearch: IS Done!" << endl;
@@ -370,8 +370,14 @@ int main(){
 			cout << "binSearch: NOT Done!" << endl;
 		}
 	}
-
-
+	cout << "min: " <<  (*ot).min( array, size ) << endl;
+	cout << "max: " <<  (*ot).max( array, size ) << endl;
+	int* min = new int();
+	int* max = new int();
+	if( (*ot).minMax( array, size, min, max ) == 0 ){
+		cout << "min: " <<  (*min) << endl;
+		cout << "max: " <<  (*max) << endl;
+	}
 
 	system("pause");
 	return 0;
