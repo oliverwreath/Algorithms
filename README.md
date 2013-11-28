@@ -1,12 +1,12 @@
-Algorithms Fantasy C++ library
+# Algorithms Fantasy C++ library
 ==============================
 
 For learning, demonstration and for fun! 
 
-Algorithms Implemented so far:
+## Algorithms Implemented so far:
 ------------------------------
 
-**Sorting Fantasy:** 
+### Sorting Fantasy:
 - randomized QuickSort + Insertion optimization + half stack overhead + two way partition; 
 - Merge Sort; 
 - Selection Sort
@@ -22,7 +22,11 @@ Algorithms Implemented so far:
 
 **Vector/ ArrayList**
 ```cpp
-Vector<Type>::at Vector<Type>::back Vector<Type>::begin Vector<Type>::clear Vector<Type>::empty Vector<Type>::end Vector<Type>::erase Vector<Type>::erase Vector<Type>::expand Vector<Type>::front Vector<Type>::getBuffer Vector<Type>::getCapacity Vector<Type>::getSize Vector<Type>::pop_back Vector<Type>::push_back Vector<Type>::setBuffer Vector<Type>::setCapacity Vector<Type>::setSize Vector<Type>::Vector Vector<Type>::Vector Vector<Type>::Vector
+Vector<Type>::at Vector<Type>::back Vector<Type>::begin Vector<Type>::clear Vector<Type>::empty Vector<Type>::end 
+Vector<Type>::erase Vector<Type>::erase Vector<Type>::expand Vector<Type>::front Vector<Type>::getBuffer
+Vector<Type>::getCapacity Vector<Type>::getSize Vector<Type>::pop_back Vector<Type>::push_back 
+Vector<Type>::setBuffer Vector<Type>::setCapacity Vector<Type>::setSize 
+Vector<Type>::Vector Vector<Type>::Vector Vector<Type>::Vector
 ```
 
 **double LinkedList**
