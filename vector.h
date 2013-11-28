@@ -38,7 +38,6 @@ public:
 		if( !empty() ){
 			return *buffer[i];
 		}
-		return Invalid
 	}
 
 	Type& front(){

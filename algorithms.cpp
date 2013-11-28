@@ -7,70 +7,71 @@
 #include <staque.h>
 #include <linkedList.h>
 #include <vector.h>
+#include <others.h>
 
 //typedef int entry_type;
 
 using namespace std;
 
-//sorting
-int main()
-{
-	//MergeSort
-		//generate data as input 
-	srand( (unsigned)time(NULL) ); 
-	sorting<double> st = sorting<double>(MAXArray+1); 
-	sorting<double> st3 = sorting<double>(MAXArray+1); 
-
-		//operations
-	clock_t c1, c1e, c3, c3e;  
-	c1 = clock();
-	st.selectionSort( 0, MAXArray ); 
-	c1e = clock();
-
-	////QuickSort
-	//	//operations 
-	//c2 = clock(); 
-	//quickSort( in_array2, 0, MAXArray );
-	//c2e = clock();
-
-	//randQuickSort 
-		//operations
-	c3 = clock(); 
-	st3.selectionSort2WayV2( 0, MAXArray ); 
-	c3e = clock(); 
-
-	///output 
-	//st.printArray( MAXArray + 1 ); 
-
-	//st2.printArray( MAXArray + 1 ); 
-
-	//st3.printArray( MAXArray + 1 ); 
-
-	cout << MAXArray << " uniformly random numbers!" << endl; 
-
-	bool ret = false; 
-	ret = st.doneYet( 0, MAXArray );
-	if( ret ){
-		cout << "array1: IS done! " << endl;
-	}else{
-		cout << "array1: NOT done! " << endl;
-	}
-
-	ret = st3.doneYet( 0, MAXArray ); 
-	if( ret ){
-		cout << "array3: IS done! " << endl;
-	}else{
-		cout << "array3: NOT done! " << endl;
-	}
-
-	//output Timer
-	cout << "MergeS : " << setprecision(9) << (double)(c1e - c1)/CLOCKS_PER_SEC << endl;
-	//cout << setprecision(9) << "QuickSort : " << (double)(c2e - c2)/CLOCKS_PER_SEC << endl;
-	cout << "randQuickSort : " << setprecision(9) << (double)(c3e - c3)/CLOCKS_PER_SEC << endl;
-
-	system("pause");
-	return 0;
-}
+////sorting
+//int main()
+//{
+//	//MergeSort
+//		//generate data as input 
+//	srand( (unsigned)time(NULL) ); 
+//	sorting<double> st = sorting<double>(MAXArray+1); 
+//	sorting<double> st3 = sorting<double>(MAXArray+1); 
+//
+//		//operations
+//	clock_t c1, c1e, c3, c3e;  
+//	c1 = clock();
+//	st.selectionSort( 0, MAXArray ); 
+//	c1e = clock();
+//
+//	////QuickSort
+//	//	//operations 
+//	//c2 = clock(); 
+//	//quickSort( in_array2, 0, MAXArray );
+//	//c2e = clock();
+//
+//	//randQuickSort 
+//		//operations
+//	c3 = clock(); 
+//	st3.selectionSort2WayV2( 0, MAXArray ); 
+//	c3e = clock(); 
+//
+//	///output 
+//	//st.printArray( MAXArray + 1 ); 
+//
+//	//st2.printArray( MAXArray + 1 ); 
+//
+//	//st3.printArray( MAXArray + 1 ); 
+//
+//	cout << MAXArray << " uniformly random numbers!" << endl; 
+//
+//	bool ret = false; 
+//	ret = st.doneYet( 0, MAXArray );
+//	if( ret ){
+//		cout << "array1: IS done! " << endl;
+//	}else{
+//		cout << "array1: NOT done! " << endl;
+//	}
+//
+//	ret = st3.doneYet( 0, MAXArray ); 
+//	if( ret ){
+//		cout << "array3: IS done! " << endl;
+//	}else{
+//		cout << "array3: NOT done! " << endl;
+//	}
+//
+//	//output Timer
+//	cout << "MergeS : " << setprecision(9) << (double)(c1e - c1)/CLOCKS_PER_SEC << endl;
+//	//cout << setprecision(9) << "QuickSort : " << (double)(c2e - c2)/CLOCKS_PER_SEC << endl;
+//	cout << "randQuickSort : " << setprecision(9) << (double)(c3e - c3)/CLOCKS_PER_SEC << endl;
+//
+//	system("pause");
+//	return 0;
+//}
 
 ////binarySearchTrees 
 //int main() 
@@ -347,3 +348,31 @@ int main()
 //	system("pause");
 //	return 0;
 //}
+
+
+int main(){
+	Others* ot = new Others();
+	int array [] = {1, 2, 3, 4, 5, 6};
+	int size = sizeof(array)/ sizeof(* array);
+
+	////hasDuplication
+	//bool retb = (*ot).hasDuplication( array, &size );
+	//if( retb ){cout << "has" << endl;}
+	//else{cout << "NOT has" << endl;}
+
+	//binarySearch
+	F( target, 0, 10 ){
+		int ret = (*ot).binarySearchIter( array, 0, size-1, &target );
+		if( ret == (*ot).binarySearchValidator( array, 0, size-1, &target ) ){
+			cout << "binSearch: IS Done!" << endl;
+		}
+		else{
+			cout << "binSearch: NOT Done!" << endl;
+		}
+	}
+
+
+
+	system("pause");
+	return 0;
+}
