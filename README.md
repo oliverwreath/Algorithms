@@ -17,10 +17,10 @@ For learning, demonstration and for fun!
 
 #### Data Structures
 - Binary Search Tree
-- - double LinkedList
+- double LinkedList
 _addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove_
 - Staque: Queue made by 2 Stacks
-- - Stack: rotated Stack
+- Stack: rotated Stack
 - Queue: by 2 Stacks
 - Vector/ ArrayList
 
