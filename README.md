@@ -1,8 +1,8 @@
-# _Algorithms Fantasy_ C++ Template Library
+## _Algorithms Fantasy_ Template Library for C++
 
 For learning, demonstration and for fun! 
 
-## Algorithms:
+### Algorithms:
 
 #### Sorting:
 - randomized QuickSort + Insertion optimization + half stack overhead + two way partition; 
@@ -15,7 +15,7 @@ For learning, demonstration and for fun!
 #### Searching:
 - Binary Search
 
-## Data Structures:
+### Data Structures:
 - Binary Search Tree
 - double LinkedList
 _addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove_
@@ -24,7 +24,7 @@ _addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove_
 - Queue: by 2 Stacks
 - Vector/ ArrayList
 
-## APIs:
+### APIs:
 **Vector**
 ```cpp
 Vector<Type>::begin Vector<Type>::end Vector<Type>::front Vector<Type>::back
