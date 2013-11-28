@@ -2,9 +2,9 @@
 
 For learning, demonstration and for fun! 
 
-## Algorithms Implemented so far:
+## Algorithms:
 
-#### Sorting Fantasy:
+#### Sorting:
 - randomized QuickSort + Insertion optimization + half stack overhead + two way partition; 
 - Merge Sort; 
 - Selection Sort
@@ -12,10 +12,10 @@ For learning, demonstration and for fun!
 - Bubble Sort !
 - Insertion
  
-#### Searching
+#### Searching:
 - Binary Search
 
-#### Data Structures
+## Data Structures:
 - Binary Search Tree
 - double LinkedList
 _addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove_
