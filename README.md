@@ -13,7 +13,8 @@ For learning, demonstration and for fun!
 - Insertion
  
 #### Searching:
-- Binary Search
+- Recursive Binary Search
+- Iterative Binary Search
 
 ### Data Structures:
 - Binary Search Tree
