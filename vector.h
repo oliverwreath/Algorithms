@@ -33,6 +33,10 @@ public:
 		}
 	}
 
+	~Vector(){
+		delete [] buffer;
+	}
+
 	//methods
 	Type& at( const size_type i ){
 		if( !empty() ){

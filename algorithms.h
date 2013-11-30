@@ -7,6 +7,5 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 #define MAXDP 100001
 #define maxLen 100001

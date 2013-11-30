@@ -4,15 +4,10 @@
 
 using namespace std; 
 
-template <class T>
+template <class Type>
 class TreeNode{
-private: 
-	T value;
-	TreeNode * left; 
-	TreeNode * right;
-	TreeNode * parent; 
-
 public:
+	//constructor
 	TreeNode(){
 		value = 0;
 		left = NULL; 
@@ -20,62 +15,81 @@ public:
 		parent = NULL; 
 	}
 
-	TreeNode( T entry){
+	TreeNode( Type entry){
 		value = entry;
 		left = NULL; 
 		right = NULL;
 		parent = NULL; 
 	}
 
-	T getValue(){
+	//destructor
+	~TreeNode(){
+	}
+
+	//methods
+	Type getValue(){
 		return value;
 	}
 
-	TreeNode * getLeft(){
+	TreeNode* getLeft(){
 		return left;
 	}
 
-	TreeNode * getRight(){
+	TreeNode* getRight(){
 		return right;
 	}
 
-	TreeNode * getParent(){
+	TreeNode* getParent(){
 		return parent;
 	}
 
-	void setLeft( TreeNode * y ){
+	void setLeft( TreeNode* y ){
 		left = y;
 	}
 
-	void setRight( TreeNode * y ){
+	void setRight( TreeNode* y ){
 		right = y;
 	}
 
-	void setParent( TreeNode * y ){
+	void setParent( TreeNode* y ){
 		parent = y;
 	}
 
+private: 
+	Type value;
+	TreeNode* left; 
+	TreeNode* right;
+	TreeNode* parent; 
 };
 
-template <class T>
+template <class Type>
 class Tree{
-private:
-	TreeNode<T> * root;
-
 public: 
+	//typedef
+	typedef TreeNode<Type>* iterator;
+
+	//constructor
 	Tree(){ 
 		root = NULL;
 	}
-	Tree( TreeNode<T> * rt ){ 
+	
+	Tree( iterator rt ){ 
 		root = rt;
 	}
 
-	TreeNode<T> * getRoot(){
+	//destructor
+	~Tree(){ 
+		//TBD
+		root = NULL;
+	}
+
+	//methods
+	iterator getRoot(){
 		return root; 
 	}
 
-	TreeNode<T> * minimum( TreeNode<T> * original ){
-		TreeNode<T> * tmp = original;
+	iterator minimum( iterator original ){
+		iterator tmp = original;
 		if( tmp == NULL ){
 			return NULL; 
 		}
@@ -87,8 +101,8 @@ public:
 		return tmp; 
 	}
 
-	TreeNode<T> * maximum( TreeNode<T> * original ){
-		TreeNode<T> * tmp = original;
+	iterator maximum( iterator original ){
+		iterator tmp = original;
 		if( tmp == NULL ){
 			return NULL; 
 		}
@@ -100,8 +114,8 @@ public:
 		return tmp; 
 	}
 
-	TreeNode<T> * minimum(){
-		TreeNode<T> * tmp = root;
+	iterator minimum(){
+		iterator tmp = root;
 		if( tmp == NULL ){
 			return NULL; 
 		}
@@ -113,8 +127,8 @@ public:
 		return tmp; 
 	}
 
-	TreeNode<T> * maximum(){
-		TreeNode<T> * tmp = root;
+	iterator maximum(){
+		iterator tmp = root;
 		if( tmp == NULL ){
 			return NULL; 
 		}
@@ -126,15 +140,15 @@ public:
 		return tmp; 
 	}
 
-	TreeNode<T> * pre( TreeNode<T> * original ){
+	iterator pre( iterator original ){
 		if( original == NULL ){
 			return original;
 		}
-		TreeNode<T> * tmp = original;
+		iterator tmp = original;
 		if( (* tmp).getLeft() != NULL ){
 			return maximum( (* tmp).getLeft() );
 		}
-		TreeNode<T> * y = (* tmp).getParent(); 
+		iterator y = (* tmp).getParent(); 
 		while( y != NULL && (* y).getLeft() == tmp ){
 			tmp = y; 
 			y = (* y).getParent();
@@ -143,15 +157,15 @@ public:
 		return y; 
 	}
 
-	TreeNode<T> * suc( TreeNode<T> * original ){
+	iterator suc( iterator original ){
 		if( original == NULL ){
 			return original;
 		}
-		TreeNode<T> * tmp = original;
+		iterator tmp = original;
 		if( (* tmp).getRight() != NULL ){
 			return minimum( (* tmp).getRight() );
 		}
-		TreeNode<T> * y = (* tmp).getParent(); 
+		iterator y = (* tmp).getParent(); 
 		while( y != NULL && (* y).getRight() == tmp ){
 			tmp = y; 
 			y = (* y).getParent();
@@ -177,7 +191,7 @@ public:
 		return printTreePosRec( root );
 	}
 
-	TreeNode<T> * searchTree( T entry ){ 
+	iterator searchTree( Type entry ){ 
 		if( root == NULL || ((* root).getValue() == entry) ){ 
 			return root;
 		} 
@@ -189,15 +203,15 @@ public:
 		}
 	}
 
-	bool insertNode( TreeNode<T> * z ){ 
-		TreeNode<T> * y = root ; 
+	bool insertNode( iterator z ){ 
+		iterator y = root ; 
 
 		if( root == NULL ){ 
 			root = z; 
 			return true; 
 		} 
 
-		TreeNode<T> * tmp = root;
+		iterator tmp = root;
 		while( tmp != NULL ){ 
 			if( (* z).getValue() < (* tmp).getValue() ){
 				y = tmp;
@@ -220,7 +234,7 @@ public:
 		return true; 
 	}
 
-	bool deleteNode( TreeNode<T> * z ){
+	bool deleteNode( iterator z ){
 		if( z == NULL ){
 			cerr << "error: InValid Input: no such TreeNode or entry !" << endl;
 			return false;
@@ -232,7 +246,7 @@ public:
 			transPlant( z, (* z).getLeft() );
 		}
 		else{
-			TreeNode<T> * y = minimum( (* z).getRight() );
+			iterator y = minimum( (* z).getRight() );
 			if( (* y).getParent() != z ){
 				transPlant( y, (* y).getRight() );
 				(* y).setRight( (* z).getRight() );
@@ -245,13 +259,15 @@ public:
 		return true;
 	}
 
-	bool deleteEntry( T entry ){ 
+	bool deleteEntry( Type entry ){ 
 		return deleteNode( searchTree( entry ) ); 
 	}
 
 private:
-	void transPlant( TreeNode<T> * u, TreeNode<T> * v ){
-		TreeNode<T> * p = (* u).getParent(); 
+	iterator root;
+
+	void transPlant( iterator u, iterator v ){
+		iterator p = (* u).getParent(); 
 		if( p == NULL ){
 			root = v;
 		}
@@ -268,7 +284,7 @@ private:
 		} 
 	}
 
-	void printTreeInRec( TreeNode<T> * root ){ 
+	void printTreeInRec( iterator root ){ 
 		//in-order
 		if( (* root).getLeft() != NULL ){
 			printTreeInRec( (* root).getLeft() );
@@ -281,7 +297,7 @@ private:
 		}
 	}
 
-	void printTreePreRec( TreeNode<T> * root ){ 
+	void printTreePreRec( iterator root ){ 
 		//pre-order
 		if( (* root).getValue() != NULL ){ 
 			cout << (* root).getValue() << " "; 
@@ -294,7 +310,7 @@ private:
 		}
 	}
 
-	void printTreePosRec( TreeNode<T> * root ){ 
+	void printTreePosRec( iterator root ){ 
 		//pos-order
 		if( (* root).getLeft() != NULL ){
 			printTreePosRec( (* root).getLeft() );
@@ -307,7 +323,7 @@ private:
 		} 
 	} 
 
-	TreeNode<T> * searchTreeRec( TreeNode<T> * root, T entry ){
+	iterator searchTreeRec( iterator root, Type entry ){
 		if( root == NULL || ((* root).getValue() == entry) ){ 
 			return root;
 		} 

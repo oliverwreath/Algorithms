@@ -3,58 +3,70 @@
 
 using namespace std; 
 
-template<class T>
+template<class Type>
 class dLinkedListNode{
 public: 
-	dLinkedListNode( T in ){
+	//typedef
+	typedef dLinkedListNode<Type>* iterator;
+	//constructor
+	dLinkedListNode( Type in ){
 		value = in; 
 		prev = NULL;
 		next = NULL; 
 	}
 
-	T getValue(){
+	//destructor
+	~dLinkedListNode(){
+	}
+
+	//methods
+	Type getValue(){
 		return value;
 	}
 
-	dLinkedListNode<T> * getPrev(){
+	iterator getPrev(){
 		return prev;
 	}
 
-	dLinkedListNode<T> * getNext(){
+	iterator getNext(){
 		return next;
 	}
 
-	bool setValue( T invalue ){
+	bool setValue( Type invalue ){
 		value = invalue;
 		return true;
 	}
 
-	bool setPrev( dLinkedListNode<T> * inprev ){
+	bool setPrev( iterator inprev ){
 		prev = inprev;
 		return true;
 	}
 
-	bool setNext( dLinkedListNode<T> * innext ){
+	bool setNext( iterator innext ){
 		next = innext; 
 		return true;
 	}
 
 private: 
-	T value;
-	dLinkedListNode<T> * prev;
-	dLinkedListNode<T> * next;
+	Type value;
+	iterator prev;
+	iterator next;
 };
 
-template<class T> 
+template<class Type> 
 class dLinkedList{ 
 public: 
+	//typedef
+	typedef dLinkedListNode<Type>* iterator;
+
+	//constructor
 	dLinkedList(){
 		first = NULL;
 		last = NULL;
 		count = 0;
 	}
 
-	dLinkedList( dLinkedListNode<T> * in ){ 
+	dLinkedList( iterator in ){ 
 		if( in == NULL ){
 			first = NULL;
 			last = NULL;
@@ -67,24 +79,30 @@ public:
 		}
 	}
 
-	dLinkedListNode<T> * getNext(){
+	//destructor
+	~dLinkedList(){
+		clear();
+	}
+
+	//methods
+	iterator getNext(){
 		return (* first).getNext();
 	}
 
-	dLinkedListNode<T> * getNext( dLinkedListNode<T> * in ){
+	iterator getNext( iterator in ){
 		return (* in).getNext();
 	}
 
-	dLinkedListNode<T> * getPrev(){
+	iterator getPrev(){
 		return (* first).getPrev();
 	}
 
-	dLinkedListNode<T> * getPrev( dLinkedListNode<T> * in ){
+	iterator getPrev( iterator in ){
 		return (* in).getPrev();
 	}
 
-	bool addFirst( T value ){
-		dLinkedListNode<T> * newNode = new dLinkedListNode<T>( value );
+	bool addFirst( Type value ){
+		iterator newNode = new dLinkedListNode<Type>( value );
 		if( first != NULL ){
 			(* first).setPrev( newNode );
 			(* newNode).setNext( first );
@@ -99,7 +117,7 @@ public:
 		return true;
  	}
 
-	bool addFirst( dLinkedListNode<T> * newNode ){
+	bool addFirst( iterator newNode ){
 		if( first != NULL ){
 			(* first).setPrev( newNode );
 			(* newNode).setNext( first );
@@ -114,8 +132,8 @@ public:
 		return true;
  	}
 
-	bool addLast( T value ){
-		dLinkedListNode<T> * newNode = new dLinkedListNode<T>( value );
+	bool addLast( Type value ){
+		iterator newNode = new dLinkedListNode<Type>( value );
 		if( last != NULL ){
 			(* last).setNext( newNode );
 			(* newNode).setPrev( last );
@@ -130,7 +148,7 @@ public:
 		return true;
  	}
 
-	bool addLast( dLinkedListNode<T> * newNode ){
+	bool addLast( iterator newNode ){
 		if( last != NULL ){
 			(* last).setNext( newNode );
 			(* newNode).setPrev( last );
@@ -145,13 +163,13 @@ public:
 		return true;
  	}
 
-	bool addAfter( dLinkedListNode<T> * in, dLinkedListNode<T> * newNode ){
+	bool addAfter( iterator in, iterator newNode ){
 		if( indexNode == NULL ){
 			//error
 			cerr << "error: Invalid argument: NULL! " << endl;
 			return false; 
 		}
-		dLinkedListNode<T> * tmp = first;
+		iterator tmp = first;
 		while( tmp != NULL && (* tmp).getValue() != (* indexNode).getValue() ){
 			tmp = (* tmp).getNext();
 		}
@@ -162,7 +180,7 @@ public:
 				last = newNode; 
 			}
 			else{
-				dLinkedListNode<T> * n = (* indexNode).getNext();
+				iterator n = (* indexNode).getNext();
 				(* newNode).setNext( n );
 				(* n).setPrev( newNode );
 				(* indexNode).setNext( newNode );
@@ -173,14 +191,14 @@ public:
 		return true;
 	}
 
-	bool addAfter( dLinkedListNode<T> * indexNode, T value ){ 
-		dLinkedListNode<T> * newNode = new dLinkedListNode<T>( value );
+	bool addAfter( iterator indexNode, Type value ){ 
+		iterator newNode = new dLinkedListNode<Type>( value );
 		if( indexNode == NULL ){
 			//error
 			cerr << "error: Invalid argument: NULL! " << endl;
 			return false; 
 		}
-		dLinkedListNode<T> * tmp = first;
+		iterator tmp = first;
 		while( tmp != NULL && (* tmp).getValue() != (* indexNode).getValue() ){
 			tmp = (* tmp).getNext();
 		}
@@ -191,7 +209,7 @@ public:
 				last = newNode; 
 			}
 			else{
-				dLinkedListNode<T> * n = (* indexNode).getNext();
+				iterator n = (* indexNode).getNext();
 				(* newNode).setNext( n );
 				(* n).setPrev( newNode );
 				(* indexNode).setNext( newNode );
@@ -202,13 +220,13 @@ public:
 		return true;
 	}
 
-	bool addBefore( dLinkedListNode<T> * indexNode, dLinkedListNode<T> * newNode ){
+	bool addBefore( iterator indexNode, iterator newNode ){
 		if( indexNode == NULL ){
 			//error
 			cerr << "error: Invalid argument: NULL! " << endl;
 			return false; 
 		}
-		dLinkedListNode<T> * tmp = first;
+		iterator tmp = first;
 		while( tmp != NULL && (* tmp).getValue() != (* indexNode).getValue() ){
 			tmp = (* tmp).getNext();
 		}
@@ -219,7 +237,7 @@ public:
 				first = newNode; 
 			}
 			else{
-				dLinkedListNode<T> * p = (* indexNode).getPrev();
+				iterator p = (* indexNode).getPrev();
 				(* newNode).setPrev( p );
 				(* p).setNext( newNode );
 				(* indexNode).setPrev( newNode );
@@ -230,14 +248,14 @@ public:
 		return true;
 	}
 
-	bool addBefore( dLinkedListNode<T> * indexNode, T value ){
-		dLinkedListNode<T> * newNode = new dLinkedListNode<T>( value );
+	bool addBefore( iterator indexNode, Type value ){
+		iterator newNode = new dLinkedListNode<Type>( value );
 		if( indexNode == NULL ){
 			//error
 			cerr << "error: Invalid argument: NULL! " << endl;
 			return false; 
 		}
-		dLinkedListNode<T> * tmp = first;
+		iterator tmp = first;
 		while( tmp != NULL && (* tmp).getValue() != (* indexNode).getValue() ){
 			tmp = (* tmp).getNext();
 		}
@@ -248,7 +266,7 @@ public:
 				first = newNode; 
 			}
 			else{
-				dLinkedListNode<T> * p = (* indexNode).getPrev();
+				iterator p = (* indexNode).getPrev();
 				(* newNode).setPrev( p );
 				(* p).setNext( newNode );
 				(* indexNode).setPrev( newNode );
@@ -260,7 +278,7 @@ public:
 	}
 
 	void clear(){
-		dLinkedListNode<T> * tmp; 
+		iterator tmp; 
 		while( first != NULL ){
 			tmp = first; 
 			first = (* first).getNext(); 
@@ -270,8 +288,8 @@ public:
 		count = 0;
 	}
 
-	dLinkedListNode<T> * find( T valueToFind ){
-		dLinkedListNode<T> * tmp = first; 
+	iterator find( Type valueToFind ){
+		iterator tmp = first; 
 		while( tmp != NULL ){
 			if( (* tmp).getValue() == valueToFind ){
 				break; 
@@ -283,9 +301,9 @@ public:
 		return tmp; 
 	}
 	
-	dLinkedListNode<T> * findLast( T valueToFind ){
-		dLinkedListNode<T> * tmp = first; 
-		dLinkedListNode<T> * tmpMarker = NULL; 
+	iterator findLast( Type valueToFind ){
+		iterator tmp = first; 
+		iterator tmpMarker = NULL; 
 		while( tmp != NULL ){
 			if( (* tmp).getValue() == valueToFind ){
 				tmpMarker = tmp; 
@@ -295,8 +313,8 @@ public:
 		return tmpMarker; 
 	} 
 
-	bool contains( T valueToFind ){ 
-		dLinkedListNode<T> * tmp = first; 
+	bool contains( Type valueToFind ){ 
+		iterator tmp = first; 
 		while( tmp != NULL ){ 
 			if( (* tmp).getValue() == valueToFind ){ 
 				return true;  
@@ -308,8 +326,8 @@ public:
 		return false; 
 	}
 
-	bool remove( T valueToFind ){ 
-		dLinkedListNode<T> * tmp = first; 
+	bool remove( Type valueToFind ){ 
+		iterator tmp = first; 
 		while( tmp != NULL ){ 
 			if( (* tmp).getValue() == valueToFind ){ 
 				if( (* tmp).getPrev() != NULL ){ 
@@ -335,9 +353,9 @@ public:
 		return false; 
 	} 
 
-	bool remove( dLinkedListNode<T> * node ){ 
-		T valueToFind = (* node).getValue();
-		dLinkedListNode<T> * tmp = first; 
+	bool remove( iterator node ){ 
+		Type valueToFind = (* node).getValue();
+		iterator tmp = first; 
 		while( tmp != NULL ){ 
 			if( (* tmp).getValue() == valueToFind ){ 
 				if( (* tmp).getPrev() != NULL ){ 
@@ -364,7 +382,7 @@ public:
 	} 
 
 	bool removeFirst(){
-		dLinkedListNode<T> * tmp = (* first).getNext(); 
+		iterator tmp = (* first).getNext(); 
 
 		if( tmp == NULL ){
 			delete first;
@@ -377,7 +395,7 @@ public:
 	}
 
 	bool removeLast(){
-		dLinkedListNode<T> * tmp = (* last).getPrev(); 
+		iterator tmp = (* last).getPrev(); 
 
 		if( tmp == NULL ){
 			delete last;
@@ -390,7 +408,7 @@ public:
 	}
 
 	bool print(){
-		dLinkedListNode<T> * tmp = first;
+		iterator tmp = first;
 		while( tmp != NULL ){
 			cout << (* tmp).getValue() << " "; 
 			tmp = (* tmp).getNext(); 
@@ -400,7 +418,7 @@ public:
 	}
 
 private: 
-	dLinkedListNode<T> * first;
-	dLinkedListNode<T> * last;
+	dLinkedListNode<Type>* first;
+	dLinkedListNode<Type>* last;
 	int count;
 };

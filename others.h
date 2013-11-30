@@ -1,6 +1,8 @@
 
 #include <iostream>
 #include <common.h>
+#include <string>
+#include <unordered_map>
 
 using namespace std;
 
@@ -9,6 +11,7 @@ class Others{
 public:
 	//iterator
 	typedef Type* iterator;
+	typedef int size_type;
 	//constructors
 	Others(){
 	}
@@ -146,6 +149,49 @@ public:
 		}
 		return 0;
 	}
+	
+	//first NON-repeating
+	size_type getFirstNonRepIndex( string inputString ){
+		if( emptyString( inputString ) ){
+			return (size_type )(-1);
+		}
+		size_type retIndex = 0;
+		Type tmpValue = inputString[0];
+		unordered_map<char, int> ht;
+		for( unsigned i = 1; i <= inputString.length()-1; i++ ){
+			//fill a hash_map
+			if( ht.find( inputString[i] ) != ht.end() ){
+				ht[ inputString[i] ] = 2;
+			}
+			else{
+				ht[ inputString[i] ] = 1;
+			}
+		}
+		for( unsigned i = 1; i <= inputString.length()-1; i++ ){
+			//return the first index that satisfies
+			if( ht[ inputString[i] ] < 2 ){
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	bool emptyString( string inputString ){
+		if( inputString.length() == 0 ){
+			return true;
+		}
+		return false;
+	}
+	
+	bool nullOrEmpty( iterator array ){
+		if( array == NULL || ( size < 1 ) ){
+			return false;
+		}
+		return true;
+	}
 
 
 };
+
+
+

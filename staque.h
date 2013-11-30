@@ -13,6 +13,11 @@ public:
 		entry_array = new Type [maxLen];
 	}
 
+	//destructor
+	~Queue(){
+		delete [] entry_array;
+	}
+
 	int next(int ret){
 		if( ret <= maxLen-2 ){
 			ret++;
@@ -106,6 +111,11 @@ public:
 		entry_array = new Type [maxLen];
 	}
 
+	//destructor
+	~Stack(){
+		delete [] entry_array;
+	}
+
 	int push( Type entry ){
 		if( !full() ){
 			entry_array[length] = entry;
@@ -181,6 +191,11 @@ public:
 	Staque(){
 		st1 = Stack<Type>();
 		st2 = Stack<Type>();
+	}
+
+	//destructor
+	~Staque(){
+		
 	}
 
 	int enqueue( Type in ){

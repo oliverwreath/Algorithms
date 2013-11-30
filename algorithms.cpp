@@ -73,91 +73,91 @@ using namespace std;
 //	return 0;
 //}
 
-////binarySearchTrees 
-//int main() 
-//{ 
-//	TreeNode<int> newNode = TreeNode<int>(4); 
-//	Tree<int> tree1( &TreeNode<int>(3) ); 
-//	tree1.printTreePre( ); 
-//
-//	tree1.insertNode( &newNode ); 
-//	tree1.printTreePre( ); 
-//
-//	tree1.insertNode( &TreeNode<int>(1) ); 
-//	tree1.printTreePre( ); 
-//
-//	tree1.insertNode( &TreeNode<int>(2) ); 
-//	tree1.printTreePre( ); 
-//
-//	tree1.insertNode( &TreeNode<int>(9) ); 
-//	tree1.printTreePre( ); 
-//
-//	tree1.insertNode( &TreeNode<int>(2) ); 
-//	tree1.printTreePre( ); 
-//
-//	tree1.insertNode( &TreeNode<int>(4) ); 
-//	tree1.printTreePre( ); 
-//
-//	tree1.insertNode( &TreeNode<int>(8) ); 
-//	tree1.printTreePre( ); 
-//
-//	cout << (* tree1.searchTree( 3 ) ).getValue() << endl; 
-//
-//	cout << (* tree1.minimum()).getValue() << endl; 
-//
-//	cout << (* tree1.maximum()).getValue() << endl; 
-//
-//	TreeNode<int> * tmp = tree1.suc( tree1.minimum()); 
-//	if(tmp != NULL){
-//		cout << (* tmp).getValue() << endl; 
-//	}else{
-//		cerr << "error NO SUC !" << endl; 
-//	}
-//
-//	tmp = tree1.suc( tree1.maximum());
-//	if(tmp != NULL){
-//		cout << (* tmp).getValue() << endl;
-//	}else{
-//		cerr << "error NO SUC !" << endl;
-//	}
-//
-//	tmp = tree1.pre( tree1.minimum());
-//	if(tmp != NULL){
-//		cout << (* tmp).getValue() << endl;
-//	}else{
-//		cerr << "error NO PRE !" << endl;
-//	}
-//
-//	tmp = tree1.pre( tree1.maximum());
-//	if(tmp != NULL){
-//		cout << (* tmp).getValue() << endl;
-//	}else{
-//		cerr << "error NO PRE !" << endl;
-//	}
-//
-//	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
-//	tree1.printTreePre( ); 
-//
-//	tree1.deleteEntry( 3 ); cout << "delete 3 :" << endl;
-//	tree1.printTreePre( ); 
-//
-//	tree1.deleteEntry( 4 ); cout << "delete 4 :" << endl;
-//	tree1.printTreePre( ); 
-//
-//	tree1.deleteEntry( 9 ); cout << "delete 9 :" << endl;
-//	tree1.printTreePre( ); 
-//
-//	tree1.deleteEntry( 2 ); cout << "delete 2 :" << endl;
-//	tree1.printTreePre( ); 
-//
-//	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
-//	tree1.printTreePre( ); 
-//
-//	tmp = NULL; 
-//
-//	system("pause"); 
-//	return 0; 
-//} 
+//binarySearchTrees 
+int main() 
+{ 
+	TreeNode<int> newNode = TreeNode<int>(4); 
+	Tree<int> tree1( &TreeNode<int>(3) ); 
+	tree1.printTreePre( ); 
+
+	tree1.insertNode( &newNode ); 
+	tree1.printTreePre( ); 
+
+	tree1.insertNode( &TreeNode<int>(1) ); 
+	tree1.printTreePre( ); 
+
+	tree1.insertNode( &TreeNode<int>(2) ); 
+	tree1.printTreePre( ); 
+
+	tree1.insertNode( &TreeNode<int>(9) ); 
+	tree1.printTreePre( ); 
+
+	tree1.insertNode( &TreeNode<int>(2) ); 
+	tree1.printTreePre( ); 
+
+	tree1.insertNode( &TreeNode<int>(4) ); 
+	tree1.printTreePre( ); 
+
+	tree1.insertNode( &TreeNode<int>(8) ); 
+	tree1.printTreePre( ); 
+
+	cout << (* tree1.searchTree( 3 ) ).getValue() << endl; 
+
+	cout << (* tree1.minimum()).getValue() << endl; 
+
+	cout << (* tree1.maximum()).getValue() << endl; 
+
+	TreeNode<int> * tmp = tree1.suc( tree1.minimum()); 
+	if(tmp != NULL){
+		cout << (* tmp).getValue() << endl; 
+	}else{
+		cerr << "error NO SUC !" << endl; 
+	}
+
+	tmp = tree1.suc( tree1.maximum());
+	if(tmp != NULL){
+		cout << (* tmp).getValue() << endl;
+	}else{
+		cerr << "error NO SUC !" << endl;
+	}
+
+	tmp = tree1.pre( tree1.minimum());
+	if(tmp != NULL){
+		cout << (* tmp).getValue() << endl;
+	}else{
+		cerr << "error NO PRE !" << endl;
+	}
+
+	tmp = tree1.pre( tree1.maximum());
+	if(tmp != NULL){
+		cout << (* tmp).getValue() << endl;
+	}else{
+		cerr << "error NO PRE !" << endl;
+	}
+
+	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
+	tree1.printTreePre( ); 
+
+	tree1.deleteEntry( 3 ); cout << "delete 3 :" << endl;
+	tree1.printTreePre( ); 
+
+	tree1.deleteEntry( 4 ); cout << "delete 4 :" << endl;
+	tree1.printTreePre( ); 
+
+	tree1.deleteEntry( 9 ); cout << "delete 9 :" << endl;
+	tree1.printTreePre( ); 
+
+	tree1.deleteEntry( 2 ); cout << "delete 2 :" << endl;
+	tree1.printTreePre( ); 
+
+	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
+	tree1.printTreePre( ); 
+
+	tmp = NULL; 
+
+	system("pause"); 
+	return 0; 
+} 
 
 ////staque
 //int main()
@@ -349,36 +349,50 @@ using namespace std;
 //	return 0;
 //}
 
+////searching
+//int main(){
+//	Others<int>* ot = new Others<int>();
+//	int array [] = {-5, -2, 0, 1, 2, 3, 4, 5, 6};
+//	int size = sizeof(array)/ sizeof(* array);
+//
+//	////hasDuplication
+//	//bool retb = (*ot).hasDuplication( array, &size );
+//	//if( retb ){cout << "has" << endl;}
+//	//else{cout << "NOT has" << endl;}
+//
+//	//binarySearch
+//	F( target, -6, 8 ){
+//		int ret = (*ot).binarySearchIter( array, 0, size-1, &target );
+//		if( ret == (*ot).binarySearchValidator( array, 0, size-1, &target ) ){
+//			cout << "binSearch: IS Done!" << endl;
+//		}
+//		else{
+//			cout << "binSearch: NOT Done!" << endl;
+//		}
+//	}
+//	cout << "min: " <<  (*ot).min( array, size ) << endl;
+//	cout << "max: " <<  (*ot).max( array, size ) << endl;
+//	int* min = new int();
+//	int* max = new int();
+//	if( (*ot).minMax( array, size, min, max ) == 0 ){
+//		cout << "min: " <<  (*min) << endl;
+//		cout << "max: " <<  (*max) << endl;
+//	}
+//
+//	system("pause");
+//	return 0;
+//}
 
-int main(){
-	Others<int>* ot = new Others<int>();
-	int array [] = {-5, -2, 0, 1, 2, 3, 4, 5, 6};
-	int size = sizeof(array)/ sizeof(* array);
-
-	////hasDuplication
-	//bool retb = (*ot).hasDuplication( array, &size );
-	//if( retb ){cout << "has" << endl;}
-	//else{cout << "NOT has" << endl;}
-
-	//binarySearch
-	F( target, -6, 8 ){
-		int ret = (*ot).binarySearchIter( array, 0, size-1, &target );
-		if( ret == (*ot).binarySearchValidator( array, 0, size-1, &target ) ){
-			cout << "binSearch: IS Done!" << endl;
-		}
-		else{
-			cout << "binSearch: NOT Done!" << endl;
-		}
-	}
-	cout << "min: " <<  (*ot).min( array, size ) << endl;
-	cout << "max: " <<  (*ot).max( array, size ) << endl;
-	int* min = new int();
-	int* max = new int();
-	if( (*ot).minMax( array, size, min, max ) == 0 ){
-		cout << "min: " <<  (*min) << endl;
-		cout << "max: " <<  (*max) << endl;
-	}
-
-	system("pause");
-	return 0;
-}
+////getFirstNonRepIndex
+//int main(){
+//	Others<int>* ot = new Others<int>();
+//	int array [] = {-5, -2, 0, 1, 2, 3, 4, 5, 6};
+//	int size = sizeof(array)/ sizeof(* array);
+//
+//	string st1 = "aaaccccccttdlkjjkljlk";
+//
+//	cout << "fstNonRep: " << (*ot).getFirstNonRepIndex( st1 ) << endl;
+//
+//	system("pause");
+//	return 0;
+//}

@@ -34,6 +34,11 @@ public:
 		} 
 	} 
 
+	//destructor
+	~sorting(){
+		delete [] A;
+	}
+
 	int merge( iterator in_array, const int m, const int begin, const int end ){
 		//smallest first
 		int n = end - begin + 1;
