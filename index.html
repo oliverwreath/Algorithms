@@ -36,50 +36,68 @@
         <span class="blc"></span><span class="trc"></span>
         </div>
         <article class="markdown-body">
-          <h1>
-<a name="algorithms-fantasy-c-library" class="anchor" href="#algorithms-fantasy-c-library"><span class="octicon octicon-link"></span></a>Algorithms Fantasy C++ library</h1>
+          <h2>
+<a name="algorithms-fantasy-template-library-for-c" class="anchor" href="#algorithms-fantasy-template-library-for-c"><span class="octicon octicon-link"></span></a><em>Algorithms Fantasy</em> Template Library for C++</h2>
 
 <p>For learning, demonstration and for fun! </p>
 
-<h2>
-<a name="algorithms-implemented-so-far" class="anchor" href="#algorithms-implemented-so-far"><span class="octicon octicon-link"></span></a>Algorithms Implemented so far:</h2>
+<h3>
+<a name="algorithms" class="anchor" href="#algorithms"><span class="octicon octicon-link"></span></a>Algorithms:</h3>
 
-<p><strong>Sorting Fantasy:</strong> </p>
-
-<ul>
-<li>randomized QuickSort + Insertion optimization + half stack overhead + two way partition; </li>
-<li>Merge Sort; </li>
-<li>Selection Sort</li>
-<li>Two-way-Selection Sort with 3/2 comparisons; </li>
-<li>Bubble Sort !</li>
-<li>Insertion</li>
-</ul><p><strong>Trees:</strong></p>
+<h4>
+<a name="sorting" class="anchor" href="#sorting"><span class="octicon octicon-link"></span></a>Sorting:</h4>
 
 <ul>
-<li>Binary Search Tree
--- Prioritized Queue/ Dictionary</li>
-</ul><p><strong>double LinkedList</strong></p>
+<li>randomized Quick-Sort + Insertion optimization + half stack overhead + two way partition; </li>
+<li>Merge-Sort</li>
+<li>Selection-Sort</li>
+<li>Two-way-Selection-Sort with 3*n/2 comparisons; </li>
+<li>Bubble-Sort</li>
+<li>Insertion-Sort</li>
+</ul><h4>
+<a name="searching" class="anchor" href="#searching"><span class="octicon octicon-link"></span></a>Searching:</h4>
 
 <ul>
-<li>addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove</li>
-</ul><p><strong>Others:</strong> </p>
+<li>Recursive Binary Search</li>
+<li>Iterative Binary Search</li>
+<li>Minimum Search</li>
+<li>Maximum Search</li>
+<li>Simultaneously Min and Max Search</li>
+</ul><h3>
+<a name="data-structures" class="anchor" href="#data-structures"><span class="octicon octicon-link"></span></a>Data Structures:</h3>
 
 <ul>
+<li>Binary Search Tree</li>
+<li>double LinkedList
+<em>addAfter, addBefore, addFirst, addLast, find, findLast, clear, contain, remove</em>
+</li>
+<li>Staque: Queue made by 2 Stacks</li>
 <li>Stack: rotated Stack</li>
 <li>Queue: by 2 Stacks</li>
-<li>Staque: Queue made by 2 Stacks</li>
-</ul><h2>
-<a name="disclaimer" class="anchor" href="#disclaimer"><span class="octicon octicon-link"></span></a>Disclaimer:</h2>
+<li>Vector/ ArrayList</li>
+</ul><h3>
+<a name="apis" class="anchor" href="#apis"><span class="octicon octicon-link"></span></a>APIs:</h3>
+
+<p><strong>Vector</strong></p>
+
+<div class="highlight highlight-cpp"><pre><span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">begin</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">end</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">front</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">back</span>
+<span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">at</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">pop_back</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">push_back</span> 
+<span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">clear</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">empty</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">erase</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">expand</span> 
+<span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">getBuffer</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">getCapacity</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">getSize</span> 
+<span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">setBuffer</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">setCapacity</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">setSize</span> 
+<span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">Vector</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">Vector</span> <span class="n">Vector</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;::</span><span class="n">Vector</span>
+</pre></div>
+
+<h3>
+<a name="most-important" class="anchor" href="#most-important"><span class="octicon octicon-link"></span></a>Most important:</h3>
 
 <p>Have fun! </p>
-
-<p>All Rights Reserved. </p>
         </article>
       </div>
     </div>
     <footer>
       <div class="owner">
-      <p><a href="https://github.com/oliverwreath" class="avatar"><img src="https://0.gravatar.com/avatar/2c2254208589235f5dc85f8799efb5fc?d=https%3A%2F%2Fidenticons.github.com%2F681c5c4f5154a0b30a6a8f0db4298529.png&amp;r=x&amp;s=60" width="48" height="48"/></a> <a href="https://github.com/oliverwreath">oliverwreath</a> maintains <a href="https://github.com/oliverwreath/Algorithms">Algorithms</a></p>
+      <p><a href="https://github.com/oliverwreath" class="avatar"><img src="https://1.gravatar.com/avatar/2c2254208589235f5dc85f8799efb5fc?d=https%3A%2F%2Fidenticons.github.com%2F681c5c4f5154a0b30a6a8f0db4298529.png&amp;r=x&amp;s=60" width="48" height="48"/></a> <a href="https://github.com/oliverwreath">oliverwreath</a> maintains <a href="https://github.com/oliverwreath/Algorithms">Algorithms</a></p>
 
 
       </div>
