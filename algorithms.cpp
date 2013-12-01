@@ -8,6 +8,7 @@
 #include <linkedList.h>
 #include <vector.h>
 #include <others.h>
+#include <dynamicProgramming.h>
 
 //typedef int entry_type;
 
@@ -74,90 +75,90 @@ using namespace std;
 //}
 
 //binarySearchTrees 
-int main() 
-{ 
-	TreeNode<int> newNode = TreeNode<int>(4); 
-	Tree<int> tree1( &TreeNode<int>(3) ); 
-	tree1.printTreePre( ); 
+// int main() 
+// { 
+// 	TreeNode<int> newNode = TreeNode<int>(4); 
+// 	Tree<int> tree1( &TreeNode<int>(3) ); 
+// 	tree1.printTreePre( ); 
 
-	tree1.insertNode( &newNode ); 
-	tree1.printTreePre( ); 
+// 	tree1.insertNode( &newNode ); 
+// 	tree1.printTreePre( ); 
 
-	tree1.insertNode( &TreeNode<int>(1) ); 
-	tree1.printTreePre( ); 
+// 	tree1.insertNode( &TreeNode<int>(1) ); 
+// 	tree1.printTreePre( ); 
 
-	tree1.insertNode( &TreeNode<int>(2) ); 
-	tree1.printTreePre( ); 
+// 	tree1.insertNode( &TreeNode<int>(2) ); 
+// 	tree1.printTreePre( ); 
 
-	tree1.insertNode( &TreeNode<int>(9) ); 
-	tree1.printTreePre( ); 
+// 	tree1.insertNode( &TreeNode<int>(9) ); 
+// 	tree1.printTreePre( ); 
 
-	tree1.insertNode( &TreeNode<int>(2) ); 
-	tree1.printTreePre( ); 
+// 	tree1.insertNode( &TreeNode<int>(2) ); 
+// 	tree1.printTreePre( ); 
 
-	tree1.insertNode( &TreeNode<int>(4) ); 
-	tree1.printTreePre( ); 
+// 	tree1.insertNode( &TreeNode<int>(4) ); 
+// 	tree1.printTreePre( ); 
 
-	tree1.insertNode( &TreeNode<int>(8) ); 
-	tree1.printTreePre( ); 
+// 	tree1.insertNode( &TreeNode<int>(8) ); 
+// 	tree1.printTreePre( ); 
 
-	cout << (* tree1.searchTree( 3 ) ).getValue() << endl; 
+// 	cout << (* tree1.searchTree( 3 ) ).getValue() << endl; 
 
-	cout << (* tree1.minimum()).getValue() << endl; 
+// 	cout << (* tree1.minimum()).getValue() << endl; 
 
-	cout << (* tree1.maximum()).getValue() << endl; 
+// 	cout << (* tree1.maximum()).getValue() << endl; 
 
-	TreeNode<int> * tmp = tree1.suc( tree1.minimum()); 
-	if(tmp != NULL){
-		cout << (* tmp).getValue() << endl; 
-	}else{
-		cerr << "error NO SUC !" << endl; 
-	}
+// 	TreeNode<int> * tmp = tree1.suc( tree1.minimum()); 
+// 	if(tmp != NULL){
+// 		cout << (* tmp).getValue() << endl; 
+// 	}else{
+// 		cerr << "error NO SUC !" << endl; 
+// 	}
 
-	tmp = tree1.suc( tree1.maximum());
-	if(tmp != NULL){
-		cout << (* tmp).getValue() << endl;
-	}else{
-		cerr << "error NO SUC !" << endl;
-	}
+// 	tmp = tree1.suc( tree1.maximum());
+// 	if(tmp != NULL){
+// 		cout << (* tmp).getValue() << endl;
+// 	}else{
+// 		cerr << "error NO SUC !" << endl;
+// 	}
 
-	tmp = tree1.pre( tree1.minimum());
-	if(tmp != NULL){
-		cout << (* tmp).getValue() << endl;
-	}else{
-		cerr << "error NO PRE !" << endl;
-	}
+// 	tmp = tree1.pre( tree1.minimum());
+// 	if(tmp != NULL){
+// 		cout << (* tmp).getValue() << endl;
+// 	}else{
+// 		cerr << "error NO PRE !" << endl;
+// 	}
 
-	tmp = tree1.pre( tree1.maximum());
-	if(tmp != NULL){
-		cout << (* tmp).getValue() << endl;
-	}else{
-		cerr << "error NO PRE !" << endl;
-	}
+// 	tmp = tree1.pre( tree1.maximum());
+// 	if(tmp != NULL){
+// 		cout << (* tmp).getValue() << endl;
+// 	}else{
+// 		cerr << "error NO PRE !" << endl;
+// 	}
 
-	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
-	tree1.printTreePre( ); 
+// 	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
+// 	tree1.printTreePre( ); 
 
-	tree1.deleteEntry( 3 ); cout << "delete 3 :" << endl;
-	tree1.printTreePre( ); 
+// 	tree1.deleteEntry( 3 ); cout << "delete 3 :" << endl;
+// 	tree1.printTreePre( ); 
 
-	tree1.deleteEntry( 4 ); cout << "delete 4 :" << endl;
-	tree1.printTreePre( ); 
+// 	tree1.deleteEntry( 4 ); cout << "delete 4 :" << endl;
+// 	tree1.printTreePre( ); 
 
-	tree1.deleteEntry( 9 ); cout << "delete 9 :" << endl;
-	tree1.printTreePre( ); 
+// 	tree1.deleteEntry( 9 ); cout << "delete 9 :" << endl;
+// 	tree1.printTreePre( ); 
 
-	tree1.deleteEntry( 2 ); cout << "delete 2 :" << endl;
-	tree1.printTreePre( ); 
+// 	tree1.deleteEntry( 2 ); cout << "delete 2 :" << endl;
+// 	tree1.printTreePre( ); 
 
-	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
-	tree1.printTreePre( ); 
+// 	tree1.deleteEntry( 8 ); cout << "delete 8 :" << endl;
+// 	tree1.printTreePre( ); 
 
-	tmp = NULL; 
+// 	tmp = NULL; 
 
-	system("pause"); 
-	return 0; 
-} 
+// 	system("pause"); 
+// 	return 0; 
+// } 
 
 ////staque
 //int main()
@@ -396,3 +397,29 @@ int main()
 //	system("pause");
 //	return 0;
 //}
+
+
+//dLinkedList
+int main()
+{
+	//Stack<int> st = Stack<int>();
+	//int tmp = 0;
+
+	int array1 [] = {1, 5, 8, 9, 10, 17, 17, 20, 24, 30};
+
+	int array2 [] = {1, 2, 8, 9, 10, 17, 17, 20};
+
+	int size1 = sizeof( array1 )/ sizeof( array1[0] );
+	int size2 = sizeof( array2 )/ sizeof( array2[0] );
+
+	DynaPro<int> dp = DynaPro<int>(  );
+	DynaPro<int> dp2 = DynaPro<int>(  );
+
+	cout << dp.rodDP(array1, size1 ) << endl;
+
+	cout << dp2.rodDP(array2, size2 ) << endl;
+
+
+	system("pause");
+	return 0;
+}

@@ -16,6 +16,10 @@ public:
 	Others(){
 	}
 
+	//destructors
+	~Others(){
+	}
+
 	//methods
 	bool hasDuplication( iterator array, int* size ){
 		F( i, 0, (* size)-1 ){
