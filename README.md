@@ -39,6 +39,6 @@ Vector<Type>::setBuffer Vector<Type>::setCapacity Vector<Type>::setSize
 Vector<Type>::Vector Vector<Type>::Vector Vector<Type>::Vector
 ```
 
-### Most important:
+### Last but not least:
 Have fun! 
 
