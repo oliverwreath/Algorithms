@@ -10,6 +10,9 @@
 #include <others.h>
 #include <dynamicProgramming.h>
 
+#include <vector>
+#include <string>
+
 //typedef int entry_type;
 
 using namespace std;
@@ -399,27 +402,53 @@ using namespace std;
 //}
 
 
-//dLinkedList
-int main()
-{
-	//Stack<int> st = Stack<int>();
-	//int tmp = 0;
+////dLinkedList
+//int main()
+//{
+//	//Stack<int> st = Stack<int>();
+//	//int tmp = 0;
+//
+//	int array1 [] = {1, 5, 8, 9, 10, 17, 17, 20, 24, 30};
+//
+//	int array2 [] = {1, 2, 8, 9, 10, 17, 17, 20};
+//
+//	int size1 = sizeof( array1 )/ sizeof( array1[0] );
+//	int size2 = sizeof( array2 )/ sizeof( array2[0] );
+//
+//	DynaPro<int> dp = DynaPro<int>(  );
+//	DynaPro<int> dp2 = DynaPro<int>(  );
+//
+//	cout << dp.rodDP(array1, size1 ) << endl;
+//
+//	cout << dp2.rodDP(array2, size2 ) << endl;
+//
+//	//F( i, 0, 70 ){
+//	//	cout << dp2.hopCutting( i ) << endl;
+//	//}
+//
+//	F( i, 0, 20){
+//		cout << dp2.robotPathDP( i-1, i+3 ) << endl;
+//	}
+//
+//	system("pause");
+//	return 0;
+//}
 
-	int array1 [] = {1, 5, 8, 9, 10, 17, 17, 20, 24, 30};
+//lcs series
+int main(){
+    //input
+    int ii;
+    string a;
+    string b;
+	DynaPro<int> DP = DynaPro<int>();
 
-	int array2 [] = {1, 2, 8, 9, 10, 17, 17, 20};
+    while( cin >> ii >> a ){
+        b = a;
+        DP.reverseString(b);
+        cout << ii - DP.lcs( a, b ) << endl;
+    }
 
-	int size1 = sizeof( array1 )/ sizeof( array1[0] );
-	int size2 = sizeof( array2 )/ sizeof( array2[0] );
-
-	DynaPro<int> dp = DynaPro<int>(  );
-	DynaPro<int> dp2 = DynaPro<int>(  );
-
-	cout << dp.rodDP(array1, size1 ) << endl;
-
-	cout << dp2.rodDP(array2, size2 ) << endl;
-
-
-	system("pause");
-	return 0;
+    //output
+    system("pause");
+    return 0;
 }
