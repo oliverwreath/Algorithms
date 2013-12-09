@@ -434,21 +434,50 @@ using namespace std;
 //	return 0;
 //}
 
-//lcs series
-int main(){
-    //input
-    int ii;
-    string a;
-    string b;
-	DynaPro<int> DP = DynaPro<int>();
+////lcs series
+//int main(){
+//    //input
+//    int ii;
+//    string a;
+//    string b;
+//	DynaPro<int> DP = DynaPro<int>();
+//
+//    while( cin >> ii >> a ){
+//        b = a;
+//        DP.reverseString(b);
+//        cout << ii - DP.lcs( a, b ) << endl;
+//    }
+//
+//    //output
+//    system("pause");
+//    return 0;
+//}
 
-    while( cin >> ii >> a ){
-        b = a;
-        DP.reverseString(b);
-        cout << ii - DP.lcs( a, b ) << endl;
-    }
+////maximum subarray sum
+//int main(){
+//    int nn;
+//    int** arr;
+//	DynaPro<int> DP = DynaPro<int>();
+//    while( scanf_s("%d", &nn) != EOF ){
+//        //scan
+//        arr = new int* [nn];
+//        for( int i = 0; i <= nn-1; i++ ){
+//            arr[i] = new int [nn];
+//            for( int j = 0; j <= nn-1; j++ ){
+//                scanf_s("%d", &arr[i][j]);
+//            }  
+//        }
+//
+//        //process
+//        cout << DP.D2MSS( arr, nn ) << endl;
+//        for( int i = 0; i <= nn-1; i++ ){
+//            delete [] arr[i];
+//        }
+//        delete [] arr;
+//    }
+//
+//    //output
+//    system("pause");
+//    return 0;
+//}
 
-    //output
-    system("pause");
-    return 0;
-}

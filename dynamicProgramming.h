@@ -256,6 +256,49 @@ public:
 		}
 	}
 
+	int D1MSS( int arr [], int& nn ){
+    int sum = 0;
+    int max = INT_MIN;
+    for( int j = 0; j <= nn-1; j++ ){
+        sum += arr[j];
+        if( sum > max ){
+            max = sum;
+        }
+        if( sum < 0 ){
+            sum = 0;
+        }
+    }
+    return max;
+	}
+
+	int* MemTo1;
+
+	int D2MSS( int** arr, int& nn ){
+		int sum = 0;
+		int max = INT_MIN;
+		MemTo1 = new int [nn];
+		for( int l = 0; l <= nn-1; l++ ){
+			for( int i = l; i <= nn-1; i++ ){
+				//init Mem
+				if( i == l ){
+					for( int j = 0; j <= nn-1; j++ ){
+						MemTo1[j] = arr[i][j];
+					}
+				}
+				else{
+					for( int j = 0; j <= nn-1; j++ ){
+						MemTo1[j] += arr[i][j];
+					}
+				}
+				//process
+				int tmpRet = D1MSS( MemTo1, nn );
+				max = MAX2(max, tmpRet);
+			}
+		}
+		delete [] MemTo1;
+		return max;
+	}
+
 	//auxillary methods
 	bool emptyString( string inputString ){
 		if( inputString.length() == 0 ){

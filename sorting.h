@@ -477,10 +477,10 @@ public:
 		return ;
 	} 
 
-	void bbSort( iterator A, const int p, const int r ){
-		// denote p = 0, r = n-1
-		int times = 1;
-		while(times > 0){
+	void bbSort( iterator A, const int p, const int r ){ 
+		// denote p = 0, r = n-1 
+		int times = 1; 
+		while(times > 0){ 
 			times = 0;
 			F( i, p, r-1 ){
 				if( A[i] > A[i+1] ){
