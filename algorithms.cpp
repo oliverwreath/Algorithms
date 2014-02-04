@@ -1,4 +1,3 @@
-
 #include <algorithms.h> 
 #include <iomanip>
 
@@ -480,4 +479,5 @@ using namespace std;
 //    system("pause");
 //    return 0;
 //}
+
 
