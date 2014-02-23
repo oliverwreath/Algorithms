@@ -1,4 +1,4 @@
-## _Algorithms Fantasy_ Template Library for C++
+## _Algorithms Template Library_
 
 For learning, demonstration and for fun! 
 
